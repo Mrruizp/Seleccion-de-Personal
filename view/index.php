@@ -86,7 +86,7 @@
                 <br/><br/>
                 <div class="text-center">
                     <p>¿No tiene una cuenta?</p>
-                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" id="btnagregar"><i class="fa fa-user"> Cree una </i></button>
+                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" id="btnagregar"><i class="fa fa-user"> Crear una </i></button>
                     <!--<a href="registrate.usuario.view.php" class=""> Cree una.</a>-->
                     <!--<a href="register.html" class="text-center">Register a new membership</a>-->
                 </div>
@@ -109,7 +109,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title" id="titulomodal">Crear Convocatoria</h4>
+                                    <h4 class="modal-title" id=""><b>Crear nuevo usuario</b></h4>
                                 </div>
                                 <div class="modal-body">
                                     <div class="row">
@@ -125,38 +125,38 @@
                                         </div>
                                         <div class="col-xs-3">
                                             <p>
-                                                Dni <input type="text" class="form-control" 
-                                                           id="txtDni" name="txtDni" 
-                                                           required="" autofocus="" 
-                                                           maxlength="8"
-                                                           onkeypress="ValidaSoloNumeros();">
+                                                Dni (*) <input type="text" class="form-control" 
+                                                               id="txtDni" name="txtDni" 
+                                                               required="" autofocus="" 
+                                                               maxlength="8"
+                                                               onkeypress="ValidaSoloNumeros();">
                                             </p>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-xs-6">
                                             <p>
-                                                Nombres
+                                                Nombres (*)
                                                 <input type="text" class="form-control" id="txtNombre" name="txtNombre" required="" autofocus="">
                                             </p>
                                         </div>
                                         <div class="col-xs-6">
                                             <p>
-                                                Apellidos
+                                                Apellidos (*)
                                                 <input type="text" class="form-control" id="txtApellidos" name="txtApellidos" required="" autofocus="">
                                             </p>
                                         </div>
                                         <div class="col-xs-6">
                                             <p>
-                                                Dirección
+                                                Dirección (*)
                                                 <input type="text" class="form-control" id="txtDireccion" name="txtDireccion" required="" autofocus="">
                                             </p>
                                         </div>
                                         <div class="col-xs-6">
                                             <p>
-                                                Estado Civil
+                                                Estado Civil (*)
                                                 <select size="1" id="estado_civil" name="estado_civil" class="form-control has-feedback-left" required> 
-                                                    <option>-</option>
+                                                    <option></option>
                                                     <option value="Soltero">Soltero</option>
                                                     <option value="Casado">Casado</option>
                                                     <option value="Viudo">Viudo</option>
@@ -168,33 +168,34 @@
                                     <div class="row">
                                         <div class="col-xs-6">
                                             <p>
-                                                Departamento
+                                                Departamento (*)
                                                 <input type="text" class="form-control" id="txtDepartamento" name="txtDepartamento" required="" autofocus="">
                                             </p>
                                         </div>
                                         <div class="col-xs-6">
                                             <p>
-                                                Provincia
+                                                Provincia (*)
                                                 <input type="text" id="txtProvincia" class="form-control" name="txtProvincia" required="" autofocus="">
                                             </p>
                                         </div>
                                         <div class="col-xs-6">
                                             <p>
-                                                Email
+                                                Email (*)
                                                 <input type="email" id="txtEmail" class="form-control" name="txtEmail" required="" onChange="javascript:document.getElementById('cuenta').value = this.value;">
                                             </p>
                                         </div>
                                         <div class="col-xs-6">
                                             <p>
-                                                Teléfono
-                                                <input type="text" id="txtTelefono" class="form-control" name="txtTelefono" required="" autofocus="">
+                                                Teléfono (*)
+                                                <input type="text" id="txtTelefono" class="form-control" name="txtTelefono" required="" 
+                                                       autofocus="" maxlength="8" onkeypress="ValidaSoloNumeros();">
                                             </p>
                                         </div>
                                         <div class="col-xs-6">
                                             <p>
-                                                Sexo
+                                                Sexo (*)
                                                 <select size="1" id="sexo" name="sexo" class="form-control has-feedback-left" required> 
-                                                    <option>-</option>
+                                                    <option></option>
                                                     <option value="H">Hombre</option>
                                                     <option value="M">Mujer</option>
                                                 </select>
@@ -202,9 +203,9 @@
                                         </div>
                                         <div class="col-xs-6">
                                             <p>
-                                                Edad
+                                                Edad (*)
                                                 <select size="1" id="edad" name="edad" class="form-control has-feedback-left" required> 
-                                                    <option>-</option>
+                                                    <option></option>
                                                     <option value="18">18</option>
                                                     <option value="19">19</option>
                                                     <option value="20">20</option>
@@ -253,10 +254,10 @@
                                         </div>
                                         <div class="col-xs-6">
                                             <p>
-                                                Número Hijo
+                                                Hijos (*)
                                                 <select size="1" id="hijo" name="hijo" class="form-control has-feedback-left" required> 
-                                                    <option>-</option>
-                                                    <option value="0">0</option>
+                                                    <option></option>
+                                                    <option value="NO">No</option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
@@ -268,19 +269,28 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="box box-primary">
-                                            <h3 class="profile-username">Usuario</h3>
-                                            <div class="col-xs-6">
-                                                <p>
-                                                    <b>Usuario</b>
-                                                    <input type="text" name="cuenta" class="form-control has-feedback-left" id="cuenta" readonly="true">
-                                                </p>
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <p>
-                                                    <b>Contraseña</b>
-                                                    <input type="password" name="contrasenia" class="form-control has-feedback-left" id="contrasenia" required>
-                                                </p>
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id=""><b>Usuario</b></h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    <p>
+                                                        <b>Usuario (*)</b>
+                                                        <input type="text" name="cuenta" class="form-control has-feedback-left" id="cuenta" readonly="true">
+                                                    </p>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <p>
+                                                        <b>Contraseña (*)</b>
+                                                        <input type="password" name="contrasenia" class="form-control has-feedback-left" id="contrasenia" required>
+                                                    </p>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <p>
+                                                        (*) Campo Obligatorio
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
