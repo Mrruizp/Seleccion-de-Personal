@@ -1,4 +1,4 @@
--- ESTRUCTURA DE LA BASE DE DATOS
+﻿-- ESTRUCTURA DE LA BASE DE DATOS
  CREATE DATABASE seleccionPersonal_bd;
 	use seleccionPersonal_bd;
 	DROP DATABASE seleccionPersonal_bd;

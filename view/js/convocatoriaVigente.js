@@ -180,12 +180,6 @@ function listarCronograma(codConv){
 //                    html += '<td align="center">'+item.codigo_convocatoria+'</td>';
                     html += '<td align="center">'+item.fecha_cronograma+'</td>';
                     html += '<td align="center">'+item.nombre_etapa+'</td>';
-//                    html += '<td align="center">';
-//                    html += '<button type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#myModal" onclick="listarCronograma(' + item.codigo_convocatoria + ')"><i class="fa fa-calendar"></i></button>';
-//                    html += '</td>';
-//                    html += '<td align="center">';
-//                    html += '<button type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#myModal" onclick="listarPuestos(' + item.codigo_convocatoria + ')"><i class="fa  fa-folder-open-o"></i></button>';
-//                    html += '</td>';
                     html += '</tr>';
             });
 
@@ -249,12 +243,6 @@ function listarPuesto(codPues){
                     html += '<td align="center">'+item.nombre_puesto+'</td>';
                     html += '<td align="center">'+item.tipo_jornada+'</td>';
                     html += '<td align="center">'+item.sueldo+'</td>';
-//                    html += '<td align="center">';
-//                    html += '<button type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#myModal" onclick="listarCronograma(' + item.codigo_convocatoria + ')"><i class="fa fa-calendar"></i></button>';
-//                    html += '</td>';
-//                    html += '<td align="center">';
-//                    html += '<button type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#myModal" onclick="listarPuestos(' + item.codigo_convocatoria + ')"><i class="fa  fa-folder-open-o"></i></button>';
-//                    html += '</td>';
                     html += '</tr>';
             });
 

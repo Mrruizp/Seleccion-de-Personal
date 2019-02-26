@@ -31,7 +31,7 @@
 <!-- Site wrapper -->
 <div class="wrapper">
 
-  <?php include_once './menu-arriba.view.php'; ?>
+  <?php include_once './menu-arriba.admin.view.php'; ?>
 
   <!-- =============================================== -->
 
@@ -50,7 +50,7 @@
                 <li class="active">Datos Personales</li>
               <!--<li class="active">User profile</li>-->
             </ol>
-            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal" id="btnagregar"><i class="fa fa fa-pencil"> ACTUALIZAR</i></button>
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal" id="btnagregar"><i class="fa fa fa-pencil"> ACTUALIZAR</i></button>
         </section>  
     <!-- Main content -->
     <section class="content">
@@ -211,7 +211,7 @@
                              </div>    
                           </div>
                           <div class="modal-footer">
-                              <button type="submit" class="btn btn-warning" aria-hidden="true"><i class="fa fa-save"></i> Grabar</button>
+                              <button type="submit" class="btn btn-primary" aria-hidden="true"><i class="fa fa-save"></i> Grabar</button>
                               <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncerrar"><i class="fa fa-close"></i> Cerrar</button>
                           </div>
                         </div>
@@ -365,7 +365,7 @@
                                     <h4>Foto de Perfil</h4>
                                     <div class="input-group">
                                         <label class="input-group-btn">
-                                            <span class="btn btn-warning">
+                                            <span class="btn btn-google">
                                                 <img src="../images/foto_4.png"> <input type="file" style="display: none;" multiple accept="image/png,image/jpeg" id="fotoUsuario" name="fotoUsuario">
                                             </span>
                                         </label>
@@ -386,7 +386,7 @@
                       <div class="row col-md-offset-4">
                         <div class="col-md-9">
                             <div class="form-group">
-                                <button type="submit" class="btn btn-warning col-md-6"> Guardar Foto </button>
+                                <button type="submit" class="btn btn-google col-md-6"> Actualizar Foto </button>
                             </div>
                         </div>
                       </div><br/><br/>

@@ -17,7 +17,7 @@ require_once '../controller/perfil.usuario.leer.datos.controller.php';
         <?php include_once 'estilos.view.php'; ?>
     </head>
 
-    <body class="hold-transition skin-blue-light sidebar-mini">
+    <body class="hold-transition skin-blue sidebar-mini">
         <!-- Site wrapper -->
         <div class="wrapper">
 
