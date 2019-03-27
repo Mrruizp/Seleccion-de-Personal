@@ -102,11 +102,11 @@ class Estudios extends Conexion {
     }
     
     public function agregar() {
-        $this->dbLink->beginTransaction();
+        $this->dblink->beginTransaction();
         
         try {
             $sql = "select * from f_generar_correlativo('estudio_candidato') as nc";
-            $sentencia = $this->dbLink->prepare($sql);
+            $sentencia = $this->dblink->prepare($sql);
             $sentencia->execute();
             
             if ($sentencia->rowCount()){
@@ -136,7 +136,7 @@ class Estudios extends Conexion {
                             '$_SESSION[s_doc_id]'
                            );
                     ";
-                $sentencia = $this->dbLink->prepare($sql);
+                $sentencia = $this->dblink->prepare($sql);
                 $sentencia->bindParam(":p_cod_estudio", $this->getCodigo_estudio());
                 $sentencia->bindParam(":p_institucion_educativa", $this->getInstitucion_educativa());
                 $sentencia->bindParam(":p_titulo_estudios", $this->getTitulo_estudio());
