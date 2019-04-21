@@ -158,7 +158,7 @@
               <li class="active"><a href="#activity" data-toggle="tab">VIGENTE</a></li>
               <li><a href="#timeline" data-toggle="tab">CONCLUIDO</a></li>
               <li><a href="#settings" data-toggle="tab">RESULTADO CV</a></li>
-              <li><a href="#settings" data-toggle="tab">RESULTADO DE PRUEBAS</a></li>
+              <li><a href="#settings" data-toggle="tab">PRUEBAS</a></li>
               <li><a href="#settings" data-toggle="tab">RESULTADOS FINAL</a></li>
             </ul>
             <div class="tab-content">

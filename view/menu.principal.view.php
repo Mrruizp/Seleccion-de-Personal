@@ -206,7 +206,7 @@ require_once '../controller/perfil.usuario.leer.datos.controller.php';
                                     <li class="active"><a href="#activity" data-toggle="tab">VIGENTE</a></li>
                                     <li><a href="#timeline" data-toggle="tab">CONCLUIDO</a></li>
                                     <li><a href="#resultadoCv" data-toggle="tab">RESULTADO CV</a></li>
-                                    <li><a href="#resultadoPruebas" data-toggle="tab">RESULTADO DE PRUEBAS</a></li>
+                                    <li><a href="#resultadoPruebas" data-toggle="tab">PRUEBAS</a></li>
                                     <li><a href="#resultadosFinal" data-toggle="tab">RESULTADOS FINAL</a></li>
                                 </ul>
                                 <div class="tab-content">

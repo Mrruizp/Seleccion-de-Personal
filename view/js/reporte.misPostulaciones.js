@@ -28,7 +28,7 @@ function listar() {
             html += '<th style="text-align: center">FECHA POSTULACIÓN</th>';
             html += '<th style="text-align: center">ESTADO</th>';
             html += '<th style="text-align: center">CRONOGRAMA</th>';
-            html += '<th style="text-align: center">TEST</th>';
+            html += '<th style="text-align: center">PRUEBAS</th>';
             html += '</tr>';
             html += '</thead>';
             html += '<tbody>';
@@ -46,7 +46,12 @@ function listar() {
                 html += '<button type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#myModal" onclick="listarCronograma(' + item.codigo_convocatoria + ')"><i class="fa fa-calendar"></i></button>';
                 html += '</td>';
                 html += '<td align="center">';
-                html += '<button type="button" class="btn btn-link btn-xs" onclick="evaluacion(' + item.codigo_puesto_laboral + ')"><i class="fa fa-file-text"></i></button>';
+                
+                if(item.estado === 'CURRICULO APTO')
+                {
+                    html += '<button type="button" class="btn btn-link btn-xs" onclick="evaluacion(' + item.codigo_puesto_laboral + ')"><i class="fa fa-file-text"></i></button>';
+                }
+                //html += '';
 //                    html += '<button type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#myModal2" onclick="evaluacion(' + item.codigo_puesto_laboral + ')"><i class="fa fa-file-text"></i></button>';
                 html += '</td>';
                 html += '</tr>';

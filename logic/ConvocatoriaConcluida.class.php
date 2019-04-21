@@ -43,7 +43,7 @@ class ConvocatoriaConcluida extends Conexion {
                     from
                         convocatoria
                     where
-                        estado = 'concluido'
+                        estado = 'CONCLUIDO'
                     order by 
                             2
 
