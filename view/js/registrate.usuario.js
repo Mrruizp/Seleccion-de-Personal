@@ -122,7 +122,7 @@ $("#frmgrabar").submit(function (event) {
                         if (datosJSON.estado === 200) {
                             swal("Exito", datosJSON.mensaje, "success");
                             $("#btncerrar").click(); //Cerrar la ventana 
-                            listar(); //actualizar la lista
+                           /// listar(); //actualizar la lista
                         } else {
                             swal("Mensaje del sistema", resultado, "warning");
                         }

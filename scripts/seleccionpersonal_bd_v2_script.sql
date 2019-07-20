@@ -1,4 +1,4 @@
-﻿-- ESTRUCTURA DE LA BASE DE DATOS V2 mejorado 2017-II - SCRIPT
+-- ESTRUCTURA DE LA BASE DE DATOS V2 mejorado 2017-II - SCRIPT
  CREATE DATABASE seleccionpersonal_bd_v2;
 	use seleccionpersonal_bd_v2;
 	DROP DATABASE seleccionpersonal_bd_v2;
@@ -23,7 +23,12 @@ CREATE TABLE menu_item
       REFERENCES menu (codigo_menu) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
 );
-
+ CREATE TABLE cargo
+(
+  codigo_cargo serial NOT NULL,
+  descripcion character varying(50) NOT NULL,
+  CONSTRAINT pk_cargo PRIMARY KEY (codigo_cargo)
+);
 CREATE TABLE menu_item_accesos
 (
   codigo_menu integer NOT NULL,
@@ -49,7 +54,7 @@ CREATE TABLE menu_item_accesos
  CREATE TABLE CANDIDATO
  (
 	-- codigo_candidato integer not null,
-        doc_ID character varying(20)not null, 
+    doc_ID character varying(20)not null, 
 	nombre character varying(100)not null, 
 	apellidos character varying(100)not null,
 	direccion character varying(200)not null,  
@@ -95,12 +100,7 @@ CREATE TABLE menu_item_accesos
     candidato(doc_ID)
     
  );
- CREATE TABLE cargo
-(
-  codigo_cargo serial NOT NULL,
-  descripcion character varying(50) NOT NULL,
-  CONSTRAINT pk_cargo PRIMARY KEY (codigo_cargo)
-);
+
  
  CREATE TABLE ESTUDIO_CANDIDATO
  (
@@ -135,7 +135,7 @@ CREATE TABLE menu_item_accesos
  );
 
 insert into estudio_candidato(codigo_estudio_candidato,institucion_educativa,titulo_estudio,grado_estudio,fecha_inicio,fecha_fin,doc_id)
-values(1,'-','-','-','-','-','');
+values(1,'-','-','-','-','-','12345678');
 update estudio_candidato
 set doc_id = '12345678'
 where

@@ -3,12 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="2"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp_1/htdocs/seleccionPersonal_tesis_v2/seleccionPersonal/view/index.php</file>
-            <file>file:/C:/xampp_1/htdocs/seleccionPersonal_tesis_v2/seleccionPersonal/data/Conexion.class.php</file>
-            <file>file:/C:/xampp_1/htdocs/seleccionPersonal_tesis_v2/seleccionPersonal/view/validar.datos.sesion.view.php</file>
-            <file>file:/C:/xampp_1/htdocs/seleccionPersonal_tesis_v2/seleccionPersonal/logic/Sesion.class.php</file>
-            <file>file:/C:/xampp_1/htdocs/seleccionPersonal_tesis_v2/seleccionPersonal/util/functions/Helper.class.php</file>
-            <file>file:/C:/xampp_1/htdocs/seleccionPersonal_tesis_v2/seleccionPersonal/data/configuracion.php</file>
+            <file>file:/C:/xampp/htdocs/seleccionPersonal_tesis_v2/seleccionPersonal/view/validar.datos.sesion.view.php</file>
+            <file>file:/C:/xampp/htdocs/seleccionPersonal_tesis_v2/seleccionPersonal/util/functions/Helper.class.php</file>
+            <file>file:/C:/xampp/htdocs/seleccionPersonal_tesis_v2/seleccionPersonal/data/Conexion.class.php</file>
+            <file>file:/C:/xampp/htdocs/seleccionPersonal_tesis_v2/seleccionPersonal/view/js/convocatoriaConcluida.js</file>
+            <file>file:/C:/xampp/htdocs/seleccionPersonal_tesis_v2/seleccionPersonal/view/js/registrate.usuario.js</file>
+            <file>file:/C:/xampp/htdocs/seleccionPersonal_tesis_v2/seleccionPersonal/controller/perfil.usuario.leer.datos.controller.php</file>
+            <file>file:/C:/xampp/htdocs/seleccionPersonal_tesis_v2/seleccionPersonal/view/registrate.usuario.view.php</file>
+            <file>file:/C:/xampp/htdocs/seleccionPersonal_tesis_v2/seleccionPersonal/view/scripts.view.php</file>
+            <file>file:/C:/xampp/htdocs/seleccionPersonal_tesis_v2/seleccionPersonal/view/menu.principal.view.php</file>
+            <file>file:/C:/xampp/htdocs/seleccionPersonal_tesis_v2/seleccionPersonal/data/configuracion.php</file>
+            <file>file:/C:/xampp/htdocs/seleccionPersonal_tesis_v2/seleccionPersonal/logic/registrate.usuario.class.php</file>
         </group>
     </open-files>
 </project-private>
