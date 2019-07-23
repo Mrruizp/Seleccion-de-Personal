@@ -30,7 +30,7 @@ $email = $_POST['txtEmail'];
 //echo $dni;
 
 
-$dbconn = pg_connect("host=localhost port=5433 dbname=seleccionpersonal_bd_v2 user=postgres password=")
+$dbconn = pg_connect("host=localhost port=5432 dbname=seleccionpersonal_bd_v2 user=postgres password=1234")
         or die('NO HAY CONEXION: ' . pg_last_error());
 $iddd = $dni;
 
