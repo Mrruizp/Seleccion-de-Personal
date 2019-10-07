@@ -106,16 +106,14 @@ require_once '../controller/perfil.usuario.leer.datos.controller.php';
                                     <div class="row">
                                         <div class="col-md-12 col-xs-12">
                                             <div class="x_title">
-                                                <header class="text-center">
-                                                    <label>
-                                                        <img src="../images/logo_1.jpg" class="img-container">
-                                                    </label>        
+                                                <header class="text-center">      
                                                     <label>
                                                         <h1><b>LA SELECCIÓN DE PERSONAL</b></h1>
                                                         <b>
                                                             Guía práctica para directivos y mandos<br/>
                                                             de las empresas.<br/><br/> 
                                                         </b>  
+                                                        <img src="../images/guia2.png" class="img-container">
                                                     </label>
                                                 </header>
                                                 <br/>
@@ -158,7 +156,7 @@ require_once '../controller/perfil.usuario.leer.datos.controller.php';
                                             <b>TELÉFONO</b> <a class="pull-right"><?php echo $resultado["telefono"]; ?></a>
                                         </li>
                                     </ul>
-                                    <a href="perfil.usuario.admin.view.php" class="btn btn-primary btn-block"><b>Editar</b></b></a>
+                                    <a href="perfil.usuario.admin.view.php" class="btn btn-warning btn-block"><b>Editar</b></b></a>
                                 </div>
                                 <!-- /.box-body -->
                             </div>
@@ -203,11 +201,11 @@ require_once '../controller/perfil.usuario.leer.datos.controller.php';
                         <div class="col-md-9">
                             <div class="nav-tabs-custom">
                                 <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#activity" data-toggle="tab">VIGENTE</a></li>
-                                    <li><a href="#timeline" data-toggle="tab">CONCLUIDO</a></li>
-                                    <li><a href="#resultadoCv" data-toggle="tab">RESULTADO CV</a></li>
-                                    <li><a href="#resultadoPruebas" data-toggle="tab">PRUEBAS</a></li>
-                                    <li><a href="#resultadosFinal" data-toggle="tab">RESULTADOS FINAL</a></li>
+                                    <li class="active"><a href="#activity" data-toggle="tab" class="text-bold">VIGENTE</a></li>
+                                    <li><a href="#timeline" data-toggle="tab" class="text-bold">CONCLUIDO</a></li>
+                                    <li><a href="#resultadoCv" data-toggle="tab" class="text-bold">RESULTADO CV</a></li>
+                                    <li><a href="#resultadoPruebas" data-toggle="tab" class="text-bold">PRUEBAS</a></li>
+                                    <li><a href="#resultadosFinal" data-toggle="tab" class="text-bold">RESULTADOS FINAL</a></li>
                                 </ul>
                                 <div class="tab-content">
                                     <div class="active tab-pane" id="activity">
@@ -215,14 +213,14 @@ require_once '../controller/perfil.usuario.leer.datos.controller.php';
                                         <div class="post">
                                             <div class="user-block">
                                                 <span class="">
-                                                    <a href="#">CONVOCATORIAS</a>
+                                                    <a class="text-warning">CONVOCATORIAS</a>
                                                 </span>
                                             <!--<span class="description">Shared publicly - 7:30 PM today</span>-->
                                             </div>
                                             <!-- /.user-block -->
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <div class="box box-primary">
+                                                    <div class="box box-warning">
                                                         <div class="box-body">
                                                             <div id="listadoV"></div>
                                                         </div>
@@ -237,14 +235,14 @@ require_once '../controller/perfil.usuario.leer.datos.controller.php';
                                         <div class="post">
                                             <div class="user-block">
                                                 <span class="">
-                                                    <a href="#">CONVOCATORIAS</a>
+                                                    <a class="text-warning">CONCLUIDO</a>
                                                 </span>
                                             <!--<span class="description">Shared publicly - 7:30 PM today</span>-->
                                             </div>
                                             <!-- /.user-block -->
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <div class="box box-primary">
+                                                    <div class="box box-warning">
                                                         <div class="box-body">
                                                             <div id="listadoC"></div>
                                                         </div>
@@ -260,14 +258,14 @@ require_once '../controller/perfil.usuario.leer.datos.controller.php';
                                         <div class="post">
                                             <div class="user-block">
                                                 <span class="">
-                                                    <a href="#">CANDIDATOS APTOS Y NO APTOS PARA EVALUACIÓN</a>
+                                                    <a class="text-warning">CANDIDATOS APTOS Y NO APTOS PARA EVALUACIÓN</a>
                                                 </span>
                                             <!--<span class="description">Shared publicly - 7:30 PM today</span>-->
                                             </div>
                                             <!-- /.user-block -->
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <div class="box box-primary">
+                                                    <div class="box box-warning">
                                                         <div class="box-body">
                                                             <div id="listadoCv"></div>
                                                         </div>
@@ -280,14 +278,14 @@ require_once '../controller/perfil.usuario.leer.datos.controller.php';
                                         <div class="post">
                                             <div class="user-block">
                                                 <span class="">
-                                                    <a href="#">LISTA DE PRUEBAS CON CANDIDATOS APROBADOS</a>
+                                                    <a class="text-warning">LISTA DE PRUEBAS CON CANDIDATOS APROBADOS</a>
                                                 </span>
                                             <!--<span class="description">Shared publicly - 7:30 PM today</span>-->
                                             </div>
                                             <!-- /.user-block -->
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <div class="box box-primary">
+                                                    <div class="box box-warning">
                                                         <div class="box-body">
                                                             <div id="listadoResulPruebas"></div>
                                                         </div>
@@ -300,14 +298,14 @@ require_once '../controller/perfil.usuario.leer.datos.controller.php';
                                         <div class="post">
                                             <div class="user-block">
                                                 <span class="">
-                                                    <a href="#">RESULTADOS FINALES</a>
+                                                    <a class="text-warning">RESULTADOS FINALES</a>
                                                 </span>
                                             <!--<span class="description">Shared publicly - 7:30 PM today</span>-->
                                             </div>
                                             <!-- /.user-block -->
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <div class="box box-primary">
+                                                    <div class="box box-warning">
                                                         <div class="box-body">
                                                             <div id="listadoResulFinal"></div>
                                                         </div>
@@ -368,7 +366,7 @@ require_once '../controller/perfil.usuario.leer.datos.controller.php';
             <?php // include_once 'opciones-derecha.view.php'; ?>
             <!-- /.control-sidebar -->
             <div class="control-sidebar-bg"></div>
-        </div>
+        </div>  
         <!-- ./wrapper -->
         <?php include_once 'scripts.view.php'; ?>
         <script src="js/convocatoriaVigente.js" type="text/javascript"></script>

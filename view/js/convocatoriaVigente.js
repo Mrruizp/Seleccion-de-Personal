@@ -35,14 +35,14 @@ function listar(){
             $.each(datosJSON.datos, function(i,item) {
 //                if(item.estado == 'concluido'){
                     html += '<tr>';
-                    html += '<td align="center">'+item.codigo_convocatoria+'</td>';
-                    html += '<td>'+item.nombre_convocatoria+'</td>';
+                    html += '<td align="center"><a class="text-primary">'+item.codigo_convocatoria+'</a></td>';
+                    html += '<td><a class="text-primary">'+item.nombre_convocatoria+'</a></td>';
 //                    html += '<td>'+item.estado+'</td>';
                     html += '<td align="center">';
-                    html += '<button type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#myModal" onclick="listarCronograma(' + item.codigo_convocatoria + ')"><i class="fa fa-calendar"></i></button>';
+                    html += '<button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal" onclick="listarCronograma(' + item.codigo_convocatoria + ')"><i class="fa fa-calendar"></i></button>';
                     html += '</td>';
                     html += '<td align="center">';
-                    html += '<button type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#myModal" onclick="listarPuesto(' + item.codigo_convocatoria + ')"><i class="fa  fa-folder-open-o"></i></button>';
+                    html += '<button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal" onclick="listarPuesto(' + item.codigo_convocatoria + ')"><i class="fa  fa-folder-open-o"></i></button>';
                     html += '</td>';
                     html += '</tr>';
 //                }    

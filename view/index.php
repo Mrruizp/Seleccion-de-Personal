@@ -31,7 +31,7 @@
             <!--<br/><br/><br/><br/>-->  
             <div class="login-box-body">  
                 <div class="logo">
-                    <img src="../images/logo_1.jpg" class="col-lg-6 img-responsive">   
+                    <img src="../images/guia2.png" class="col-lg-6 img-responsive">   
                 </div>    
                 <div class="login-logo">
                     <a href="#"><b>Iniciar</b> Sesión</a>
@@ -69,7 +69,7 @@
                                                 </div>-->
                         <!-- /.col -->
                         <div class="col-xs-12">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat"> <i class="glyphicon glyphicon-log-in"></i> Ingresar</button>
+                            <button type="submit" class="btn btn-warning btn-block btn-flat"> <i class="glyphicon glyphicon-log-in"></i> Ingresar</button>
                         </div>
                         <!-- /.col -->
                     </div>
@@ -296,8 +296,8 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary" aria-hidden="true"><i class="fa fa-save"></i> Grabar</button>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal" id="btncerrar"><i class="fa fa-close"></i> Cerrar</button>
+                                    <button type="submit" class="btn btn-warning" aria-hidden="true"><i class="fa fa-save"></i> Grabar</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncerrar"><i class="fa fa-close"></i> Cerrar</button>
                                 </div>
                             </div>
                         </div>
