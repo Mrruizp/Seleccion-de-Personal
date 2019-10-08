@@ -50,7 +50,7 @@ require_once 'validar.datos.sesion.view.php';
                 <section class="content">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="box box-primary">
+                            <div class="box box-warning">
                                 <div class="box-body">
                                     <div id="listado"></div>
                                 </div>

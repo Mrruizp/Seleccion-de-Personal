@@ -119,14 +119,6 @@
               </li>
               <!-- Menu Body -->
               <li class="user-body">
-                  <div class="col-xs-12 text-center">
-                      <a href="menu.principal.view.php" class="">
-                          <span class="btn btn-link btn-flat">Mi área</span>
-                      </a><br/>
-<!--                      <a href="#" class="">
-                          <span class="btn btn-link btn-flat">Contraseña</span>
-                      </a>-->
-                  </div>
                 <!-- /.row -->
               </li>
               <!-- Menu Footer-->

@@ -52,7 +52,7 @@
         <section class="content">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="box box-primary">
+                    <div class="box box-warning">
                         <div class="box-body">
                             <div id="listado"></div>
                         </div>
@@ -124,7 +124,7 @@
                                 </div>
                           </div>
                           <div class="modal-footer">
-                              <button type="submit" class="btn btn-success" aria-hidden="true"><i class="fa fa-save"></i> Grabar</button>
+                              <button type="submit" class="btn btn-warning" aria-hidden="true"><i class="fa fa-save"></i> Grabar</button>
                               <button type="button" class="btn btn-default" data-dismiss="modal" id="btncerrar"><i class="fa fa-close"></i> Cerrar</button>
                           </div>
                         </div>
