@@ -50,10 +50,10 @@ require_once 'validar.datos.sesion.view.php';
                 <section class="content">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="box box-primary">
+                            <div class="box box-warning">
                                 <section class="content-header">
                                     <h3>Criterios</h3>
-                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal" id="btnagregar"><i class="fa fa-plus"> Agregar nuevo criterio </i></button>
+                                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal" id="btnagregar"><i class="fa fa-plus"> Agregar nuevo criterio </i></button>
                                 </section>
                                 <div class="box-body">
                                     <div id="listado"></div>
@@ -137,7 +137,7 @@ require_once 'validar.datos.sesion.view.php';
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="submit" class="btn btn-primary" aria-hidden="true"><i class="fa fa-save"></i> Grabar</button>
+                                            <button type="submit" class="btn btn-warning" aria-hidden="true"><i class="fa fa-save"></i> Grabar</button>
                                             <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncerrar"><i class="fa fa-close"></i> Cerrar</button>
                                         </div>
                                     </div>

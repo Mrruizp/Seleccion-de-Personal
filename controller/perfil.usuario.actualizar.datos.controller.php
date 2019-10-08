@@ -30,7 +30,7 @@ $email = $_POST['txtEmail'];
 //echo $dni;
 
 
-$dbconn = pg_connect("host=localhost port=5432 dbname=seleccionpersonal_bd_v2 user=postgres password=1234")
+$dbconn = pg_connect("host=localhost port=5433 dbname=seleccionpersonal_bd user=postgres password=123")
         or die('NO HAY CONEXION: ' . pg_last_error());
 $iddd = $dni;
 
@@ -38,20 +38,20 @@ $iddd = $dni;
 
 $query = "update candidato
                                set 
-                                    doc_id = '$dni',
-                                    nombre = '$nombre',
-                                    apellidos = '$apellidos',
-                                    direccion = '$direccion',
-                                    telefono = '$celular',
-                                    hijos = '$hijos',
+                                    doc_id                  = '$dni',
+                                    nombre                  = '$nombre',
+                                    apellidos               = '$apellidos',
+                                    direccion               = '$direccion',
+                                    telefono                = '$celular',
+                                    hijos                   = '$hijos',
                                     departamento_nacimiento = '$departamento_nacimiento',
-                                    ciudad_nacimiento = '$ciudad_nacimiento',
-                                    estado_civil = '$estado_civil',
-                                    sexo = '$sexo',
-                                    edad = '$edad',
-                                    email = '$email'
+                                    ciudad_nacimiento       = '$ciudad_nacimiento',
+                                    estado_civil            = '$estado_civil',
+                                    sexo                    = '$sexo',
+                                    edad                    = '$edad',
+                                    email                   = '$email'
                                where
-                                       doc_id ='$dni';";
+                                       doc_id = '$dni';";
 
 
 $result = pg_query($dbconn, $query) or die('ERROR AL INSERTAR DATOS: ' . pg_last_error());
