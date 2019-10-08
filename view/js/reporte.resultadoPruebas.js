@@ -33,9 +33,9 @@ function listarRPrueba(){
             $.each(datosJSON.datos, function(i,item) {
 //                if(item.estado == 'concluido'){
                     html += '<tr>';
-                    html += '<td align="center"><a class="text-primary">'+item.codigo_puesto_laboral+'</a></td>';
-                    html += '<td><a class="text-primary">'+item.nombre_convocatoria+'</a></td>';
-                    html += '<td><a class="text-primary">'+item.nombre_puesto+'</a></td>';
+                    html += '<td align="center"><a class="text-black">'+item.codigo_puesto_laboral+'</a></td>';
+                    html += '<td><a class="text-black">'+item.nombre_convocatoria+'</a></td>';
+                    html += '<td><a class="text-black">'+item.nombre_puesto+'</a></td>';
                     html += '<td align="center">';
                     html += '<button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal" onclick="resultadosPruebas(' + item.codigo_puesto_laboral + ')"><i class="fa fa-file-text-o"></i></button>';
                     html += '</td>';
