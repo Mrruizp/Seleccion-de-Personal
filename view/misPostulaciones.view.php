@@ -59,7 +59,7 @@ require_once 'validar.datos.sesion.view.php';
 
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <div class="box box-primary">
+                                                    <div class="box box-warning">
                                                         <div class="box-body">
 
                                                             <div id="listado"></div>
@@ -80,7 +80,7 @@ require_once 'validar.datos.sesion.view.php';
                     </small>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="box box-primary">
+                            <div class="box box-warning">
                                 <div class="box-body">
                                     <div id="listadoMp"></div>
                                 </div>
@@ -89,7 +89,7 @@ require_once 'validar.datos.sesion.view.php';
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="box box-primary box-solid">
+                            <div class="box box-warning box-solid">
                                 <div class="box-header with-border">
                                     <h3 class="box-title">Pruebas Específicas</h3>
 
@@ -110,7 +110,7 @@ require_once 'validar.datos.sesion.view.php';
                             <!-- /.box -->
                         </div>
                         <div class="col-md-6">
-                            <div class="box box-primary box-solid">
+                            <div class="box box-warning box-solid">
                                 <div class="box-header with-border">
                                     <h3 class="box-title">Pruebas de Conocimiento</h3>
 
@@ -140,7 +140,7 @@ require_once 'validar.datos.sesion.view.php';
                     </div>
                     <div class="row">
                         <div class="col-md-7">
-                            <div class="box box-primary box-solid">
+                            <div class="box box-warning box-solid">
                                 <div class="box-header with-border">
                                     <h3 class="box-title">EVALUACIÓN</h3>
 
@@ -244,7 +244,7 @@ require_once 'validar.datos.sesion.view.php';
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="submit" class="btn btn-primary" aria-hidden="true"><i class="fa fa-save"></i> Grabar</button>
+                                                <button type="submit" class="btn btn-warning" aria-hidden="true"><i class="fa fa-save"></i> Grabar</button>
                                                 <button type="button" class="btn btn-default" data-dismiss="modal" id="btncerrarRc"><i class="fa fa-close"></i> Cerrar</button>
                                             </div>
                                         </div>
@@ -286,7 +286,7 @@ require_once 'validar.datos.sesion.view.php';
                                 </div>
                           </div>
                           <div class="modal-footer">
-                              <button type="submit" class="btn btn-primary" aria-hidden="true"><i class="fa fa-save"></i> Evaluar</button>
+                              <button type="submit" class="btn btn-warning" aria-hidden="true"><i class="fa fa-save"></i> Evaluar</button>
                               <button type="button" class="btn btn-default" data-dismiss="modal" id="btncerrarCalifPruebas"><i class="fa fa-close"></i> Cerrar</button>
                           </div>
                         </div>
