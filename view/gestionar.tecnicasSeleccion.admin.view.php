@@ -147,21 +147,11 @@ require_once 'validar.datos.sesion.view.php';
                                                         Duración de la prueba
                                                         <select required="" name="cboDuracion" id="cboDuracion" class="form-control input-sm">
                                                             <option>-</option>
-<!--                                                            <option value="1m">1 minutos</option>
-                                                            <option value="2m">2 minutos</option>
-                                                            <option value="3m">3 minutos</option>
-                                                            <option value="4m">4 minutos</option>
-                                                            <option value="5">5 minutos</option>
-                                                            <option value="6m">6 minutos</option>
-                                                            <option value="7m">7 minutos</option>
-                                                            <option value="8m">8 minutos</option>
-                                                            <option value="9m">9 minutos</option>-->
                                                             <option value="10m">10 minutos</option>
-<!--                                                            <option value="11m">11 minutos</option>
-                                                            <option value="12m">12 minutos</option>
-                                                            <option value="13m">13 minutos</option>
-                                                            <option value="14m">14 minutos</option>
-                                                            <option value="15m">15 minutos</option>-->
+                                                            <option value="15m">15 minutos</option>
+                                                            <option value="15m">20 minutos</option>
+                                                            <option value="15m">25 minutos</option>
+                                                            <option value="15m">30 minutos</option>
                                                         </select>
                                                     </p>
                                                 </div>

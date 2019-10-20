@@ -195,12 +195,12 @@ CREATE TABLE DEPARTAMENTO
 	objetivo_puesto character varying(200)not null,
 	funciones_puesto character varying(1000)not null, -- funciones del puesto o cotidianas, o habituales y frecuentes
 	horario_trabajo character varying(150)not null,
-	condiciones_trabajo character varying(100)not null,
+	condiciones_trabajo character varying(500)not null,
 	relaciones_sociales_internas character varying(150)not null,
 	relaciones_sociales_externas character varying(150)not null,
 	responsabilidades character varying(250)not null,
 	equipo_de_trabajo character varying(250)not null,
-	observaciones_finales character varying(150)not null,
+	observaciones_finales character varying(500)not null,
 	sueldo int not null,
 	-- formacion varchar(200)not null,
 	-- experiencia_deseable varchar(200)not null, ESTA EN LA ENTIDAD EXPERIENCIA REQUERIDA
@@ -219,6 +219,14 @@ CREATE TABLE DEPARTAMENTO
 	CONSTRAINT fk_codigo_convocatoria foreign key(codigo_convocatoria) references 
 	convocatoria(codigo_convocatoria)
  );
+ 
+  /*
+ ALTER TABLE PUESTO_LABORAL
+ALTER COLUMN observaciones_finales TYPE character varying(500);
+
+ ALTER TABLE PUESTO_LABORAL
+ALTER COLUMN condiciones_trabajo TYPE character varying(500);
+*/
 
   CREATE TABLE EXPERIENCIA_REQUERIDA -- DATO PARA PROFESIOGRAMA
  (

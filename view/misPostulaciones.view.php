@@ -2,6 +2,7 @@
 require_once 'validar.datos.sesion.view.php';
 //      $dniSesion= $_SESSION["s_doc_id"] ;
 //require_once '../logic/Sesion.class.php';
+$_POST["s_usuario"] = $dniSesion;
 ?>
 <!DOCTYPE html>
 <html>
