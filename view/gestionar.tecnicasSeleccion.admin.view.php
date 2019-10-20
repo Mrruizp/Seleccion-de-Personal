@@ -144,7 +144,7 @@ require_once 'validar.datos.sesion.view.php';
                                             <div class="row">
                                                 <div class="col-xs-6">
                                                     <p>
-                                                        Duración de la prueba
+                                                            Duración de la prueba
                                                         <select required="" name="cboDuracion" id="cboDuracion" class="form-control input-sm">
                                                             <option>-</option>
                                                             <option value="10m">10 minutos</option>
