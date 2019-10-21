@@ -165,7 +165,7 @@ require_once '../controller/puestoSeleccionado.leer.datos.controller.php';
 
                                                 <?php
 // conexion a la base de datos
-                                                $dbconn = pg_connect("host=localhost port=5433 dbname=seleccionpersonal_bd_v2 user=postgres password=")
+                                                $dbconn = pg_connect("host=localhost port=5433 dbname=seleccionpersonal_bd user=postgres password=123")
                                                         or die('NO HAY CONEXION: ' . pg_last_error());
 
 //consulta sencilla
