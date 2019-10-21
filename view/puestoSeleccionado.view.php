@@ -81,7 +81,7 @@ require_once '../controller/puestoSeleccionado.leer.datos.controller.php';
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">DESCRIPCIÓN</label>
+                                                <p>DESCRIPCIÓN:</p>
                                                 <ul>
                                                     Por encargo de nuestro cliente, nos encontramos en la búsqueda y selección de un <?php echo $resultado["nombre_puesto"]; ?>.
                                                 </ul>
@@ -91,7 +91,7 @@ require_once '../controller/puestoSeleccionado.leer.datos.controller.php';
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">OBJETIVO(s)</label>
+                                                <p>OBJETIVO(s):</p>
                                                 <ul>
                                                     <?php echo $resultado["objetivo_puesto"]; ?>.
                                                 </ul>
@@ -101,7 +101,7 @@ require_once '../controller/puestoSeleccionado.leer.datos.controller.php';
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">CONDICIONES LABORALES </label>
+                                                <p>CONDICIONES LABORALES:</p>
                                                 <ul>
                                                     <?php echo $resultado["condiciones_trabajo"]; ?>.
                                                 </ul>
@@ -111,7 +111,7 @@ require_once '../controller/puestoSeleccionado.leer.datos.controller.php';
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">RELACIONES INTERNAS</label>
+                                                <p>RELACIONES INTERNAS:</p>
                                                 <ul>
                                                     <?php echo $resultado["relaciones_sociales_internas"]; ?>.
                                                 </ul>
@@ -121,7 +121,7 @@ require_once '../controller/puestoSeleccionado.leer.datos.controller.php';
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">RELACIONES EXTERNAS</label>
+                                                <p>RELACIONES EXTERNAS:</p>
                                                 <ul>
                                                     <?php echo $resultado["relaciones_sociales_externas"]; ?>.
                                                 </ul>
@@ -131,7 +131,7 @@ require_once '../controller/puestoSeleccionado.leer.datos.controller.php';
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">RESPONSABILIDADES</label>
+                                                <p>RESPONSABILIDADES:</p>
                                                 <ul>
                                                     <?php echo $resultado["responsabilidades"]; ?>.
                                                 </ul>
@@ -141,7 +141,7 @@ require_once '../controller/puestoSeleccionado.leer.datos.controller.php';
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">OBSERVACIONES FINALES</label>
+                                                <p>OBSERVACIONES FINALES:</p>
                                                 <ul>
                                                     <?php echo $resultado["observaciones_finales"]; ?>.
                                                 </ul>
@@ -151,79 +151,39 @@ require_once '../controller/puestoSeleccionado.leer.datos.controller.php';
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">HORARIO</label>
-                                                <ul>
+                                                <p>HORARIO
+                                                
                                                     <?php echo $resultado["horario_trabajo"]; ?>.
-                                                </ul>
+                                                
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">EXPERIENCIA COMO:</label>
-
-                                                <?php
-// conexion a la base de datos
-                                                $dbconn = pg_connect("host=localhost port=5433 dbname=seleccionpersonal_bd user=postgres password=123")
-                                                        or die('NO HAY CONEXION: ' . pg_last_error());
-
-//consulta sencilla
-                                                $query = "select
-                                                                experiencia_requerida,
-                                                                duracion
-                                                          from
-                                                                experiencia_requerida 
-                                                          where
-                                                                codigo_puesto_laboral = $codigo_puesto;";
-                                                $result = pg_query($query) or die('Query failed: ' . pg_last_error());
-
-                                                $rows = pg_numrows($result);
-//                                echo "<h1>cantidad de rows $rows </h1>";
-
-                                                echo "<table border = 0 class=table table-bordered table-striped>\n";
-//                                echo "<tr><td>ID<td>CEDULA<td>NOMBRE</tr>";
-//mostrar los datos
-                                                for ($i = 1; $i <= $rows; $i++) {
-                                                    $line = pg_fetch_array($result, null, PGSQL_ASSOC);
-                                                    echo "\t<tr>\n";
-                                                    echo "\t\t<td>$line[experiencia_requerida].</td>\n";
-                                                    echo "\t\t<td>$line[duracion].</td>\n";
-                                                    //                                echo "\t\t<td>$line[nombre]</td>\n";
-                                                    echo "\t</tr>\n";
-                                                }
-                                                echo "</table>\n";
-                                                echo "<hr>";
-// Free resultset
-                                                pg_free_result($result);
-// Closing connection
-//                                                    pg_close($dbconn);
-                                                ?>
-
+                                                <p>EXPERIENCIA COMO:</p>
+                                                <ul>
+                                                    <?php echo $resultado["experiencia_requerida"]; ?>
+                                                    <?php echo $resultado["duracion"]; ?> .
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
 
                                 </div>
                                 <!-- /.box-body -->
-
                                 <div class="row col-md-offset-4">
                                     <div class="col-md-9">
                                         <div class="form-group">
                                             <?php
-//                                            session_name("seleccion_personal_v2");
-//                                            session_start();
-                                            if ($s_cargo == 'CANDIDATO') {
-                                                echo "<button type='button' class='btn btn-warning btn-ms col-md-6' aria-hidden='true' data-toggle='modal' data-target='#myModal' id='btnagregar'>Postular</button>";
-                                            }
-                                            pg_close($dbconn);
+                                                if ($s_cargo == 'CANDIDATO') 
+                                                    {
+                                                        echo "<button type='button' class='btn btn-warning btn-ms col-md-6' aria-hidden='true' data-toggle='modal' data-target='#myModal' id='btnagregar'>Postular</button>";
+                                                    }
                                             ?>
-                                            <!--                                                <button type="submit" class="btn btn-warning col-md-6"> Postular </button>-->
                                         </div>
                                     </div>
-
-
-
                                     <!-- INICIO del formulario modal -->
                                     <small>
                                         <form id="frmgrabar">

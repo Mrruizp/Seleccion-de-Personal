@@ -18,9 +18,9 @@ function listar(){
             html += '<table id="tabla-listado" class="table table-condensed">';
             html += '<thead>';
             html += '<tr style="background-color: #ededed; height:25px;">';
-            html += '<th>CODIGO</th>';
-            html += '<th>GRADO ACADÉMICO</th>';
-            html += '<th>TÍTULO</th>';
+            html += '<th style="text-align: center">CODIGO</th>';
+            html += '<th style="text-align: center">GRADO ACADÉMICO</th>';
+            html += '<th style="text-align: center">TÍTULO</th>';
 	    html += '<th style="text-align: center">INSTITUCIÓN</th>';
 	    html += '<th style="text-align: center">FECHA INICIO</th>';
 	    html += '<th style="text-align: center">FECHA FIN</th>';
@@ -33,11 +33,11 @@ function listar(){
             $.each(datosJSON.datos, function(i,item) {
                 html += '<tr>';
                 html += '<td align="center">'+item.codigo_estudio_candidato+'</td>';
-                html += '<td>'+item.institucion_educativa+'</td>';
-                html += '<td>'+item.titulo_estudio+'</td>';
-                html += '<td>'+item.grado_estudio+'</td>';
-                html += '<td>'+item.fecha_inicio+'</td>';
-                html += '<td>'+item.fecha_fin+'</td>';
+                html += '<td align="center">'+item.grado_estudio+'</td>';                
+                html += '<td align="center">'+item.titulo_estudio+'</td>';
+                html += '<td align="center">'+item.institucion_educativa+'</td>';
+                html += '<td align="center">'+item.fecha_inicio+'</td>';
+                html += '<td align="center">'+item.fecha_fin+'</td>';
 		html += '<td align="center">';
 		html += '<button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal" onclick="leerDatos(' + item.codigo_estudio_candidato + ')"><i class="fa fa-pencil"></i></button>';
 		html += '&nbsp;&nbsp;';

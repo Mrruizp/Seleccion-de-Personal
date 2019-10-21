@@ -10,9 +10,10 @@ class puestoSeleccionado extends Conexion {
                     select
                             *
                     from
-                            puesto_laboral 
+                            puesto_laboral l inner join experiencia_requerida e
+							on l.codigo_puesto_laboral = e.codigo_puesto_laboral
                     where
-                            codigo_puesto_laboral = :p_puesto_id
+                            l.codigo_puesto_laboral = :p_puesto_id
 
                 ";
 //            $sql = "
