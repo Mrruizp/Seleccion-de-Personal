@@ -63,7 +63,7 @@ require_once 'validar.datos.sesion.view.php';
                         <div class="col-md-12">
                             <div class="box box-warning">
                                 <section class="content-header">
-                                    <h3>Experiencia del Puesto</h3>
+                                    <h3>Requisitos o exigencias del Puesto</h3>
                                     <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal2" id="btnagregar2"><i class="fa fa-briefcase"></i> Agregar nueva experiencia</button>
                                 </section>
                                 <div class="box-body">
@@ -333,7 +333,7 @@ require_once 'validar.datos.sesion.view.php';
                                                 </div>
                                                 <div class="col-xs-7">
                                                     <p>
-                                                        Experiencia
+                                                        Formación
                                                         <select required="" name="cboExperiencia" id="cboExperiencia" class="form-control input-sm">
                                                             <option> - </option>
                                                             <option value="Abogado especialista en constructoras">Abogado especialista en constructoras</option>
@@ -376,18 +376,14 @@ require_once 'validar.datos.sesion.view.php';
                                                         </select>
                                                     </p>
                                                 </div>
-                                                <div class="col-xs-4">
+                                                <div class="col-xs-11">
                                                     <p>
-                                                        Duración
-                                                        <select required="" name="cboDuracion" id="cboDuracion" class="form-control input-sm">
-                                                            <option> - </option>
-                                                            <option value="Menor a 1 ano">menor a 1 año</option>
-                                                            <option value="de 1 a 2 anos">de 1 a 2 años</option>
-                                                            <option value="de 2 a 3 anos">de 2 a 3 años</option>
-                                                            <option value="de 3 a 4 anos">de 3 a 4 años</option>
-                                                            <option value="más de 4 anos">más de 4 años</option>
-
-                                                        </select>
+                                                        Detalle de la experiencia ... <textarea type="text" 
+                                                                                         name="txtCondiciones" 
+                                                                                         id="txtCondiciones" 
+                                                                                         required=""
+                                                                                         rows="10"
+                                                                                         class="form-control input-sm"></textarea>
                                                     </p>
                                                 </div>
                                             </div>

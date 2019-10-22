@@ -93,7 +93,7 @@ require_once '../controller/puestoSeleccionado.leer.datos.controller.php';
                                             <div class="form-group">
                                                 <p>OBJETIVO(s):</p>
                                                 <ul>
-                                                    <?php echo $resultado["objetivo_puesto"]; ?>.
+                                                    <?php echo $resultado["objetivo_puesto"]; ?>
                                                 </ul>
                                             </div>
                                         </div>
@@ -101,49 +101,9 @@ require_once '../controller/puestoSeleccionado.leer.datos.controller.php';
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <p>CONDICIONES LABORALES:</p>
+                                                <p>FUNCIONES(s):</p>
                                                 <ul>
-                                                    <?php echo $resultado["condiciones_trabajo"]; ?>.
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <div class="form-group">
-                                                <p>RELACIONES INTERNAS:</p>
-                                                <ul>
-                                                    <?php echo $resultado["relaciones_sociales_internas"]; ?>.
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <div class="form-group">
-                                                <p>RELACIONES EXTERNAS:</p>
-                                                <ul>
-                                                    <?php echo $resultado["relaciones_sociales_externas"]; ?>.
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <div class="form-group">
-                                                <p>RESPONSABILIDADES:</p>
-                                                <ul>
-                                                    <?php echo $resultado["responsabilidades"]; ?>.
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <div class="form-group">
-                                                <p>OBSERVACIONES FINALES:</p>
-                                                <ul>
-                                                    <?php echo $resultado["observaciones_finales"]; ?>.
+                                                    <?php echo $resultado["funciones_puesto"]; ?>
                                                 </ul>
                                             </div>
                                         </div>
@@ -153,7 +113,7 @@ require_once '../controller/puestoSeleccionado.leer.datos.controller.php';
                                             <div class="form-group">
                                                 <p>HORARIO
                                                 
-                                                    <?php echo $resultado["horario_trabajo"]; ?>.
+                                                    <?php echo $resultado["horario_trabajo"]; ?>
                                                 
                                                 </p>
                                             </div>
@@ -162,10 +122,61 @@ require_once '../controller/puestoSeleccionado.leer.datos.controller.php';
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="form-group">
+                                                <p>CONDICIONES LABORALES:</p>
+                                                <ul>
+                                                    <?php echo $resultado["condiciones_trabajo"]; ?>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <p>RELACIONES INTERNAS:</p>
+                                                <ul>
+                                                    <?php echo $resultado["relaciones_sociales_internas"]; ?>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <p>RELACIONES EXTERNAS:</p>
+                                                <ul>
+                                                    <?php echo $resultado["relaciones_sociales_externas"]; ?>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <p>RESPONSABILIDADES:</p>
+                                                <ul>
+                                                    <?php echo $resultado["responsabilidades"]; ?>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <p>OBSERVACIONES FINALES:</p>
+                                                <ul>
+                                                    <?php echo $resultado["observaciones_finales"]; ?>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
                                                 <p>EXPERIENCIA COMO:</p>
                                                 <ul>
                                                     <?php echo $resultado["experiencia_requerida"]; ?>
-                                                    <?php echo $resultado["duracion"]; ?> .
+                                                    <?php echo $resultado["duracion"]; ?>
                                                 </ul>
                                             </div>
                                         </div>
