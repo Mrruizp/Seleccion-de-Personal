@@ -228,25 +228,28 @@ ALTER COLUMN observaciones_finales TYPE character varying(500);
 ALTER COLUMN condiciones_trabajo TYPE character varying(500);
 */
 
-  CREATE TABLE EXPERIENCIA_REQUERIDA -- DATO PARA PROFESIOGRAMA
+  CREATE TABLE FORMACION -- DATO PARA PROFESIOGRAMA
  (
-	codigo_experiencia_requerida integer,
-	experiencia_requerida character varying(100)not null, -- SE DEBE MANEJAR UN COMBO PARA COMPARAR CON LA ESPERIENCIA DEL CANDIDATO Y FILTRAR 1
-	duracion character varying(100) not null, 
-    -- meses_anos varchar(50) not null,  
+	codigo_formacion integer,
+	nombre_formacion character varying(100)not null, -- SE DEBE MANEJAR UN COMBO PARA COMPARAR CON LA ESPERIENCIA DEL CANDIDATO Y FILTRAR 1
 	codigo_puesto_laboral integer,
-	CONSTRAINT pk_codigo_experiencia_requerida PRIMARY KEY(codigo_experiencia_requerida),
-	CONSTRAINT fk_codigo_puesto_laboral foreign key(codigo_puesto_laboral) references 
-	puesto_laboral(codigo_puesto_laboral)
+	CONSTRAINT pk_codigo_formacion PRIMARY KEY(codigo_formacion)
+	
  );
-
-
-
-
-
-
-
-
+ 
+   CREATE TABLE EXPERIENCIA -- DATO PARA PROFESIOGRAMA
+ (
+	codigo_experiencia integer,
+	nombre_experiencia character varying(100)not null, -- SE DEBE MANEJAR UN COMBO PARA COMPARAR CON LA ESPERIENCIA DEL CANDIDATO Y FILTRAR 1
+    duracion_experiencia character varying(100) not null, 
+	codigo_puesto_laboral integer,
+	codigo_formacion integer,	 
+	CONSTRAINT pk_codigo_experiencia PRIMARY KEY(codigo_experiencia),
+	CONSTRAINT fk_codigo_formacion foreign key(codigo_formacion) references 
+	FORMACION(codigo_formacion),
+	CONSTRAINT fk_codigo_puesto_laboral foreign key(codigo_puesto_laboral) references 
+	puesto_laboral(codigo_puesto_laboral) 
+ );
 
 
 CREATE TABLE TIPO_PRUEBA
