@@ -115,10 +115,10 @@ CREATE TABLE menu_item_accesos
 	CONSTRAINT fk_estudio_candidato_doc_ID foreign key(doc_ID) references 
 	candidato(doc_ID)
  );
- CREATE TABLE EXPERIENCIA_LABORAL -- DATO PARA PROFESIOGRAMA
+ CREATE TABLE EXPERIENCIA_CANDIDATO -- DATO PARA PROFESIOGRAMA
  (
--- EXPERIENCIA
-	codigo_experiencia_laboral integer,
+-- EXPERIENCIA DEL CANDIDATO
+	codigo_experiencia_candidato integer,
 	rubro_empresa character varying(100)not null, -- nombre del rubo de la empresa
 	empresa character varying(100)not null,
 	puesto character varying(100)not null, -- funciona con un combo de todos los puesto, para una constructora
@@ -129,8 +129,8 @@ CREATE TABLE menu_item_accesos
 	duracion character varying(100) not null, 
 	-- fecha_fin date not null, -- fecha fin de la experiencia laboral que tuvo el candidato
 	doc_ID character varying(20),
-	CONSTRAINT pk_codigo_experiencia_laboral PRIMARY KEY (codigo_experiencia_laboral),
-	CONSTRAINT fk_experiencia_laboral_doc_ID foreign key(doc_ID) references 
+	CONSTRAINT pk_codigo_experiencia_candidato PRIMARY KEY (codigo_experiencia_candidato),
+	CONSTRAINT fk_experiencia_candidato_doc_ID foreign key(doc_ID) references 
 	candidato(doc_ID)
  );
 
@@ -228,29 +228,32 @@ ALTER COLUMN observaciones_finales TYPE character varying(500);
 ALTER COLUMN condiciones_trabajo TYPE character varying(500);
 */
 
-  CREATE TABLE FORMACION -- DATO PARA PROFESIOGRAMA
+  CREATE TABLE FORMACION_LABORAL -- DATO PARA PROFESIOGRAMA
  (
-	codigo_formacion integer,
-	nombre_formacion character varying(100)not null, -- SE DEBE MANEJAR UN COMBO PARA COMPARAR CON LA ESPERIENCIA DEL CANDIDATO Y FILTRAR 1
+-- FORMACION: El puesto de trabajo requiere cierta formación qu debe tener el candida
+	codigo_formacion_laboral integer,
+	nombre_formacion_laboral character varying(100)not null, -- SE DEBE MANEJAR UN COMBO PARA COMPARAR CON LA ESPERIENCIA DEL CANDIDATO Y FILTRAR 1
 	codigo_puesto_laboral integer,
-	CONSTRAINT pk_codigo_formacion PRIMARY KEY(codigo_formacion)
+	CONSTRAINT pk_codigo_formacion_laboral PRIMARY KEY(codigo_formacion_laboral)
 	
  );
  
-   CREATE TABLE EXPERIENCIA -- DATO PARA PROFESIOGRAMA
+ drop table formacion_laboral
+ 
+   CREATE TABLE EXPERIENCIA_LABORAL -- DATO PARA PROFESIOGRAMA
  (
-	codigo_experiencia integer,
-	nombre_experiencia character varying(100)not null, -- SE DEBE MANEJAR UN COMBO PARA COMPARAR CON LA ESPERIENCIA DEL CANDIDATO Y FILTRAR 1
-    duracion_experiencia character varying(100) not null, 
+-- EXPERIENCIA: El puesto de trabajo quizás requiere cierta experiencia para cada formación del candidato
+	codigo_experiencia_laboral integer,
+	nombre_experiencia_laboral character varying(100)not null, -- SE DEBE MANEJAR UN COMBO PARA COMPARAR CON LA ESPERIENCIA DEL CANDIDATO Y FILTRAR 1
+    duracion_experiencia_laboral character varying(100) not null, 
 	codigo_puesto_laboral integer,
-	codigo_formacion integer,	 
-	CONSTRAINT pk_codigo_experiencia PRIMARY KEY(codigo_experiencia),
-	CONSTRAINT fk_codigo_formacion foreign key(codigo_formacion) references 
-	FORMACION(codigo_formacion),
+	codigo_formacion_laboral integer,	 
+	CONSTRAINT pk_codigo_experiencia_laboral PRIMARY KEY(codigo_experiencia_laboral),
+	CONSTRAINT fk_codigo_formacion_laboral foreign key(codigo_formacion_laboral) references 
+	FORMACION_LABORAL(codigo_formacion_laboral),
 	CONSTRAINT fk_codigo_puesto_laboral foreign key(codigo_puesto_laboral) references 
 	puesto_laboral(codigo_puesto_laboral) 
  );
-
 
 CREATE TABLE TIPO_PRUEBA
  (

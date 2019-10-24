@@ -35,7 +35,7 @@ function listar(){
             //Detalle
             $.each(datosJSON.datos, function(i,item) {
                 html += '<tr>';
-                html += '<td align="center">'+item.codigo_experiencia_laboral+'</td>';
+                html += '<td align="center">'+item.codigo_experiencia_candidato+'</td>';
                 html += '<td>'+item.rubro_empresa+'</td>';
                 html += '<td>'+item.empresa+'</td>';
                 html += '<td>'+item.puesto+'</td>';

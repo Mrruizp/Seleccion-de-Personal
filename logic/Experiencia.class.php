@@ -7,7 +7,7 @@ require_once '../data/Conexion.class.php';
 //$DOC = $_SESSION["s_doc_id"];
 class Experiencia extends Conexion {
     
-    private $codigo_experiencia_laboral;
+    private $codigo_experiencia_candidato;
     private $rubro_empresa;
     private $empresa;
     private $puesto;
@@ -18,8 +18,8 @@ class Experiencia extends Conexion {
     private $duracion;
     // private $fecha_fin;
     
-    public function getCodigo_experiencia_laboral() {
-        return $this->codigo_experiencia_laboral;
+    public function getCodigo_experiencia_candidato() {
+        return $this->codigo_experiencia_candidato;
     }
 
     public function getRubro_empresa() {
@@ -54,8 +54,8 @@ class Experiencia extends Conexion {
         return $this->duracion;
     }
 
-    public function setCodigo_experiencia_laboral($codigo_experiencia_laboral) {
-        $this->codigo_experiencia_laboral = $codigo_experiencia_laboral;
+    public function setCodigo_experiencia_candidato($codigo_experiencia_candidato) {
+        $this->codigo_experiencia_candidato = $codigo_experiencia_candidato;
     }
 
     public function setRubro_empresa($rubro_empresa) {
@@ -95,7 +95,7 @@ class Experiencia extends Conexion {
         try {
             $sql = "
                     select 
-                        codigo_experiencia_laboral,
+                        codigo_experiencia_candidato,
                         rubro_empresa,
                         empresa,
                         puesto,
@@ -105,7 +105,7 @@ class Experiencia extends Conexion {
                         area,
                         duracion
                     from 
-                        experiencia_laboral 
+                        experiencia_candidato 
                     where doc_id = '$_SESSION[s_doc_id]'    
                 ";
 //            $sql = "
@@ -127,20 +127,20 @@ class Experiencia extends Conexion {
         $this->dblink->beginTransaction();
         
         try {
-            $sql = "select * from f_generar_correlativo('experiencia_laboral') as nc";
+            $sql = "select * from f_generar_correlativo('experiencia_candidato') as nc";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->execute();
             
             if ($sentencia->rowCount()){
                 $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
                 $nuevoCodigo = $resultado["nc"];
-                $this->setCodigo_experiencia_laboral($nuevoCodigo);
+                $this->setCodigo_experiencia_candidato($nuevoCodigo);
                 
                 /*Insertar en la tabla laboratorio*/
                 $sql = "
-                    insert into experiencia_laboral
+                    insert into experiencia_candidato
                             (
-                                codigo_experiencia_laboral,
+                                codigo_experiencia_candidato,
                                 rubro_empresa,
                                 empresa,
                                 puesto,
@@ -152,7 +152,7 @@ class Experiencia extends Conexion {
                                 doc_id
                             )
                     values(
-                            :p_cod_experiencia_laboral,
+                            :p_cod_experiencia_candidato,
                             :p_rubro_empresa,
                             :p_empresa,
                             :p_puesto,
@@ -165,7 +165,7 @@ class Experiencia extends Conexion {
                            );
                     ";
                 $sentencia = $this->dblink->prepare($sql);
-                $sentencia->bindParam(":p_cod_experiencia_laboral", $this->getCodigo_experiencia_laboral());
+                $sentencia->bindParam(":p_cod_experiencia_candidato", $this->getCodigo_experiencia_candidato());
                 $sentencia->bindParam(":p_rubro_empresa", $this->getRubro_empresa());
                 $sentencia->bindParam(":p_empresa", $this->getEmpresa());
                 $sentencia->bindParam(":p_puesto", $this->getPuesto());
@@ -181,7 +181,7 @@ class Experiencia extends Conexion {
                 
                 /*Actualizar el correlativo*/
                 $sql = "update correlativo set numero = numero + 1 
-                        where tabla='experiencia_laboral'";
+                        where tabla='experiencia_candidato'";
                 $sentencia = $this->dblink->prepare($sql);
                 $sentencia->execute();
 //                /*Actualizar el correlativo*/
@@ -189,7 +189,7 @@ class Experiencia extends Conexion {
                 return true;
                 
             }else{
-                throw new Exception("No se ha configurado el correlativo para la tabla experiencia_laboral");
+                throw new Exception("No se ha configurado el correlativo para la tabla experiencia_candidato");
             }
             
         } catch (Exception $exc) {
@@ -202,8 +202,8 @@ class Experiencia extends Conexion {
        public function leerDatos($p_codigoExperiencia) {
         try {
             $sql = "
-                    select * from experiencia_laboral 
-                    where codigo_experiencia_laboral = :p_cod_exp
+                    select * from experiencia_candidato 
+                    where codigo_experiencia_candidato = :p_cod_exp
                 ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_cod_exp", $p_codigoExperiencia);
@@ -219,7 +219,7 @@ class Experiencia extends Conexion {
         try {
             $sql = "
                 update 
-                    experiencia_laboral 
+                    experiencia_candidato 
                 set 
                     empresa = :p_empresa,
                     rubro_empresa = :p_rubro_empresa,
@@ -230,10 +230,10 @@ class Experiencia extends Conexion {
                     area = :p_area,
                     duracion = :p_duracion
                 where 
-                    codigo_experiencia_laboral = :p_cod_experiencia_laboral
+                    codigo_experiencia_candidato = :p_cod_experiencia_candidato
                 ";
             $sentencia = $this->dblink->prepare($sql);
-            $sentencia->bindParam(":p_cod_experiencia_laboral", $this->getCodigo_experiencia_laboral());
+            $sentencia->bindParam(":p_cod_experiencia_candidato", $this->getCodigo_experiencia_candidato());
             $sentencia->bindParam(":p_rubro_empresa", $this->getRubro_empresa());
             $sentencia->bindParam(":p_empresa", $this->getEmpresa());
             $sentencia->bindParam(":p_puesto", $this->getPuesto());
@@ -256,12 +256,12 @@ class Experiencia extends Conexion {
         try {
             $sql = "
                 delete from 
-                    experiencia_laboral 
+                    experiencia_candidato 
                 where
-                    codigo_experiencia_laboral = :p_cod_experiencia_laboral
+                    codigo_experiencia_candidato = :p_cod_experiencia_candidato
                 ";
             $sentencia = $this->dblink->prepare($sql);
-            $sentencia->bindParam(":p_cod_experiencia_laboral", $this->getCodigo_experiencia_laboral());
+            $sentencia->bindParam(":p_cod_experiencia_candidato", $this->getCodigo_experiencia_candidato());
             $sentencia->execute();
             return true;
             
