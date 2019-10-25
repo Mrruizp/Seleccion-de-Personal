@@ -6,8 +6,8 @@ try {
     
     if 
         (
-            !isset($_POST["p_cod_experiencia_laboral"]) ||
-            empty($_POST["p_cod_experiencia_laboral"])
+            !isset($_POST["p_cod_experiencia_candidato"]) ||
+            empty($_POST["p_cod_experiencia_candidato"])
             
         )
     {
@@ -15,10 +15,10 @@ try {
             exit();
     }
     
-    $codExp = $_POST["p_cod_experiencia_laboral"];
+    $codExp = $_POST["p_cod_experiencia_candidato"];
     
     $objExperiencia = new Experiencia();
-    $objExperiencia->setCodigo_experiencia_laboral($codExp);
+    $objExperiencia->setCodigo_experiencia_candidato($codExp);
     $resultado = $objExperiencia->eliminar();
     
     if ($resultado){

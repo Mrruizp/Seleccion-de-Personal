@@ -68,8 +68,8 @@ try {
     }else{ //Editar
         
         if  (
-                !isset($_POST["p_cod_experiencia_laboral"]) ||
-                empty($_POST["p_cod_experiencia_laboral"]) 
+                !isset($_POST["p_cod_experiencia_candidato"]) ||
+                empty($_POST["p_cod_experiencia_candidato"]) 
 
             )
         {
@@ -77,8 +77,8 @@ try {
                 exit();
         }
         
-        $codigo = $_POST["p_cod_experiencia_laboral"];
-        $objExperiencia->setCodigo_experiencia_laboral($codigo);
+        $codigo = $_POST["p_cod_experiencia_candidato"];
+        $objExperiencia->setCodigo_experiencia_candidato($codigo);
         $objExperiencia->setRubro_empresa($Rubro_empresa);
         $objExperiencia->setEmpresa($Empresa);
         $objExperiencia->setPuesto($Puesto);

@@ -45,9 +45,9 @@ function listar(){
                 html += '<td>'+item.area+'</td>';
                 html += '<td>'+item.duracion+'</td>';
 		html += '<td align="center">';
-		html += '<button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal" onclick="leerDatos(' + item.codigo_experiencia_laboral + ')"><i class="fa fa-pencil"></i></button>';
+		html += '<button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal" onclick="leerDatos(' + item.codigo_experiencia_candidato + ')"><i class="fa fa-pencil"></i></button>';
 		html += '&nbsp;&nbsp;';
-		html += '<button type="button" class="btn btn-danger btn-xs" onclick="eliminar(' + item.codigo_experiencia_laboral + ')"><i class="fa fa-close"></i></button>';
+		html += '<button type="button" class="btn btn-danger btn-xs" onclick="eliminar(' + item.codigo_experiencia_candidato + ')"><i class="fa fa-close"></i></button>';
 		html += '</td>';
                 html += '</tr>';
             });
@@ -120,7 +120,7 @@ $("#frmgrabar").submit(function(event){
                     p_duracion: $("#cboDuracion").val(),
                     // p_fecha_fin: $("#txtFecha2").val(),
                     p_tipo_ope: $("#txtTipoOperacion").val(),
-                    p_cod_experiencia_laboral: codExp 
+                    p_cod_experiencia_candidato: codExp 
                 }
               ).done(function(resultado){                    
                   var datosJSON = resultado;
@@ -174,7 +174,7 @@ function leerDatos(codExp){
            var jsonResultado = resultado;
            if (jsonResultado.estado === 200){
                 $("#txtTipoOperacion").val("editar");
-                $("#txtCodigo").val( jsonResultado.datos.codigo_experiencia_laboral );
+                $("#txtCodigo").val( jsonResultado.datos.codigo_experiencia_candidato );
                 $("#txtRubro").val( jsonResultado.datos.rubro_empresa );
                 $("#txtEmpresa").val( jsonResultado.datos.empresa );
                 $("#txtPuesto").val( jsonResultado.datos.puesto );
@@ -210,7 +210,7 @@ function eliminar(codExp){
                 $.post(
                     "../controller/experiencia.eliminar.controller.php",
                     {
-                        p_cod_experiencia_laboral: codExp
+                        p_cod_experiencia_candidato: codExp
                     }
                     ).done(function(resultado){
                         var datosJSON = resultado;   
