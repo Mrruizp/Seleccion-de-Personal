@@ -378,7 +378,7 @@ require_once 'validar.datos.sesion.view.php';
                                                 </div>
                                                 <div class="col-xs-11">
                                                     <p>
-                                                        Detalle de la experiencia ... <textarea type="text" 
+                                                        Detalle de la experiencia / duración (meses o años) <textarea type="text" 
                                                                                          name="txtCondiciones" 
                                                                                          id="txtCondiciones" 
                                                                                          required=""

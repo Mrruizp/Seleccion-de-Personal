@@ -233,19 +233,15 @@ ALTER COLUMN condiciones_trabajo TYPE character varying(500);
 -- FORMACION: El puesto de trabajo requiere cierta formación qu debe tener el candida
 	codigo_formacion_laboral integer,
 	nombre_formacion_laboral character varying(100)not null, -- SE DEBE MANEJAR UN COMBO PARA COMPARAR CON LA ESPERIENCIA DEL CANDIDATO Y FILTRAR 1
-	codigo_puesto_laboral integer,
-	CONSTRAINT pk_codigo_formacion_laboral PRIMARY KEY(codigo_formacion_laboral)
-	
+	CONSTRAINT pk_codigo_formacion_laboral PRIMARY KEY(codigo_formacion_laboral)	
  );
- 
- drop table formacion_laboral
- 
+  
    CREATE TABLE EXPERIENCIA_LABORAL -- DATO PARA PROFESIOGRAMA
  (
 -- EXPERIENCIA: El puesto de trabajo quizás requiere cierta experiencia para cada formación del candidato
 	codigo_experiencia_laboral integer,
-	nombre_experiencia_laboral character varying(100)not null, -- SE DEBE MANEJAR UN COMBO PARA COMPARAR CON LA ESPERIENCIA DEL CANDIDATO Y FILTRAR 1
-    duracion_experiencia_laboral character varying(100) not null, 
+	nombre_experiencia_laboral character varying(500)not null, -- SE DEBE MANEJAR UN COMBO PARA COMPARAR CON LA ESPERIENCIA DEL CANDIDATO Y FILTRAR 1
+    --duracion_experiencia_laboral character varying(100) not null, 
 	codigo_puesto_laboral integer,
 	codigo_formacion_laboral integer,	 
 	CONSTRAINT pk_codigo_experiencia_laboral PRIMARY KEY(codigo_experiencia_laboral),
@@ -620,7 +616,38 @@ values
 		'En esta última etapa se publica el resultado de 
 		de la entrevista, dando como seleccionado al
 		candidato idóneo al puesto de trabajo.'
-		);		
+		);	
+select * from experiencia_laboral;
+select * from formacion_laboral
+-- FUNCIÓN PARA INSERTAR formación y experiencia
+ CREATE OR REPLACE FUNCTION fn_registrarFormacionExperiencia(
+	 
+	 				p_codigo_experiencia_laboral integer,
+	 				p_codigo_puesto_laboral      integer,
+	 				p_codigo_formacion_laboral   integer,
+	 				p_nombre_formacion_laboral   character varying(100),
+	 				p_nombre_experiencia_laboral character varying(500)
+	 
+					 )  RETURNS void AS   
+ $$
+ begin							
+	        insert into formacion_laboral(codigo_formacion_laboral, nombre_formacion_laboral)
+			values (p_codigo_formacion_laboral, p_nombre_formacion_laboral);
+                 
+				
+			insert into experiencia_laboral(codigo_experiencia_laboral, nombre_experiencia_laboral, codigo_puesto_laboral, p_codigo_formacion_laboral)
+			values (p_codigo_experiencia_laboral, p_nombre_experiencia_laboral, p_codigo_puesto_laboral, p_codigo_formacion_laboral);
+                    
+ end
+ $$ language plpgsql;	
+
+ select * from fn_registrarFormacionExperiencia 
+                                                (
+                                               
+                                                );
+
+
+-----------------------------------------------------------------------------
 -- FUNCIÓN PARA INSERTAR CONVOCATORIA, CRONOGRAMA Y ETAPA
  CREATE OR REPLACE FUNCTION fn_registrarConvocatoria(
 					
