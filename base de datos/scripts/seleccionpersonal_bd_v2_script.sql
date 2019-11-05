@@ -380,6 +380,59 @@ CREATE TABLE postulacion
     add constraint uniq_doc_id_codigo_puesto_laboral unique(doc_id,codigo_puesto_laboral);
 
  
+-- Agregar los nombres de las tablas a la tabla correlativo
+insert into correlativo(tabla, numero)
+values('candidato',0);
+insert into correlativo(tabla, numero)
+values('cargo',0);
+insert into correlativo(tabla, numero)
+values('convocatoria',0);
+insert into correlativo(tabla, numero)
+values('cronograma',0);
+insert into correlativo(tabla, numero)
+values('departamento',0);
+insert into correlativo(tabla, numero)
+values('disposicion_laboral',0);
+insert into correlativo(tabla, numero)
+values('estudio_candidato',0);
+insert into correlativo(tabla, numero)
+values('etapa',0);
+insert into correlativo(tabla, numero)
+values('experiencia_candidato',0);
+insert into correlativo(tabla, numero)
+values('experiencia_laboral',0);
+insert into correlativo(tabla, numero)
+values('finalista',0);
+insert into correlativo(tabla, numero)
+values('formacion_laboral',0);
+insert into correlativo(tabla, numero)
+values('menu',0);
+insert into correlativo(tabla, numero)
+values('menu_item',0);
+insert into correlativo(tabla, numero)
+values('menu_item_accesos',0);
+insert into correlativo(tabla, numero)
+values('ponderacion_deseable',0);
+insert into correlativo(tabla, numero)
+values('postulacion',0);
+insert into correlativo(tabla, numero)
+values('pregunta',0);
+insert into correlativo(tabla, numero)
+values('promedio_prueba',0);
+insert into correlativo(tabla, numero)
+values('prueba',0);
+insert into correlativo(tabla, numero)
+values('puesto_laboral',0);
+insert into correlativo(tabla, numero)
+values('respuesta_candidato',0);
+insert into correlativo(tabla, numero)
+values('tipo_prueba',0);
+insert into correlativo(tabla, numero)
+values('usuario',0);
+
+
+
+select*from correlativo
 -- drop table cronograma
 -- FUNCIONES: 
 
@@ -617,12 +670,11 @@ values
 		de la entrevista, dando como seleccionado al
 		candidato idóneo al puesto de trabajo.'
 		);	
-select * from experiencia_laboral;
-select * from formacion_laboral
+
 -- FUNCIÓN PARA INSERTAR formación y experiencia
  CREATE OR REPLACE FUNCTION fn_registrarFormacionExperiencia(
 	 
-	 				p_codigo_experiencia_laboral integer,
+	 				-- p_codigo_experiencia_laboral integer,
 	 				p_codigo_puesto_laboral      integer,
 	 				p_codigo_formacion_laboral   integer,
 	 				p_nombre_formacion_laboral   character varying(100),
@@ -630,24 +682,169 @@ select * from formacion_laboral
 	 
 					 )  RETURNS void AS   
  $$
- begin							
-	        insert into formacion_laboral(codigo_formacion_laboral, nombre_formacion_laboral)
-			values (p_codigo_formacion_laboral, p_nombre_formacion_laboral);
+ 	DECLARE 
+		_codigo_experiencia_laboral int;
+ begin		
+ 	
+	 _codigo_experiencia_laboral = (select count(codigo_experiencia_laboral)+1 from experiencia_laboral);
+ 		-- --------------------------------------------------------------
+	        insert into formacion_laboral
+									(
+										codigo_formacion_laboral, 
+										nombre_formacion_laboral
+									)
+			values 
+				(
+					p_codigo_formacion_laboral, 
+					p_nombre_formacion_laboral
+				);
                  
-				
-			insert into experiencia_laboral(codigo_experiencia_laboral, nombre_experiencia_laboral, codigo_puesto_laboral, p_codigo_formacion_laboral)
-			values (p_codigo_experiencia_laboral, p_nombre_experiencia_laboral, p_codigo_puesto_laboral, p_codigo_formacion_laboral);
+		-- --------------------------------------------------------------
+			insert into experiencia_laboral
+									(
+										codigo_experiencia_laboral, 
+										nombre_experiencia_laboral, 
+										codigo_puesto_laboral, 
+										codigo_formacion_laboral
+									)
+			values 
+				(
+					_codigo_experiencia_laboral, 
+					p_nombre_experiencia_laboral, 
+					p_codigo_puesto_laboral, 
+					p_codigo_formacion_laboral
+				);
                     
  end
  $$ language plpgsql;	
 
+select * from experiencia_laboral;
+select * from formacion_laboral;
+
+delete from formacion_laboral
+select * from puesto_laboral;
+select * from formacion_laboral;
+
  select * from fn_registrarFormacionExperiencia 
                                                 (
-                                               
+													1,
+													1,
+													'Topógrafo',
+													'1 año en mediciones de áreas, usando estandares de calidad.
+													 1 año como asistente de topografía en base a expedientes técnicos'
                                                 );
 
 
 -----------------------------------------------------------------------------
+select * from formacion_laboral
+
+
+-- FUNCIÓN PARA UPDATE formación y experiencia laboral
+ CREATE OR REPLACE FUNCTION fn_actualizarFormacionExperiencia(
+	 
+	 				p_codigo_puesto_laboral      integer,
+	 				p_codigo_formacion_laboral   integer,
+	 				p_nombre_formacion_laboral   character varying(100),
+	 				p_nombre_experiencia_laboral character varying(500)
+	 
+					 )  RETURNS void AS   
+ $$
+ begin		
+ 	
+	        update 
+				formacion_laboral
+			set 
+				nombre_formacion_laboral = p_nombre_formacion_laboral
+			where 
+				codigo_formacion_laboral = p_codigo_formacion_laboral;
+			
+			update 
+				experiencia_laboral
+			set 
+				codigo_puesto_laboral = p_codigo_puesto_laboral
+				nombre_experiencia_laboral = p_nombre_experiencia_laboral			 
+			where 
+				codigo_formacion_laboral = p_codigo_formacion_laboral;
+                    
+ end
+ $$ language plpgsql;	
+ 
+select * from fn_actualizarFormacionExperiencia(
+	 
+	 				1
+	 				1
+	 				'Topógrafo',
+	 				'aaaaaaaaaaaaaaaaaaaaa'
+	 
+					 )
+
+select * from experiencia_laboral;
+select * from formacion_laboral;
+
+delete from formacion_laboral
+select * from puesto_laboral;
+select * from formacion_laboral;
+
+ select * from fn_registrarFormacionExperiencia 
+                                                (
+													1,
+													1,
+													'Topógrafo',
+													'1 año en mediciones de áreas, usando estandares de calidad.
+													 1 año como asistente de topografía en base a expedientes técnicos'
+                                                );
+
+
+-----------------------------------------------------------------------------
+
+
+-- FUNCIÓN PARA ELININAR formación y experiencia laboral
+ CREATE OR REPLACE FUNCTION fn_eliminarFormacionExperiencia(
+	 
+	 				p_codigo_formacion_laboral integer
+	 
+					 )  RETURNS void AS   
+ $$
+ begin		
+ 	
+	        delete from 
+                    experiencia_laboral 
+                where
+                    codigo_experiencia_laboral = p_codigo_formacion_laboral;
+					
+			delete from 
+                    formacion_laboral 
+                where
+                    codigo_formacion_laboral = p_codigo_formacion_laboral;
+                    
+ end
+ $$ language plpgsql;	
+ 
+select * from fn_eliminarFormacionExperiencia
+					(
+	 					1
+	 
+					 )
+
+select * from experiencia_laboral;
+select * from formacion_laboral;
+
+delete from formacion_laboral
+select * from puesto_laboral;
+select * from formacion_laboral;
+
+ select * from fn_eliminarFormacionExperiencia 
+                                                (
+													1,
+													1,
+													'Topógrafo',
+													'1 año en mediciones de áreas, usando estandares de calidad.
+													 1 año como asistente de topografía en base a expedientes técnicos'
+                                                );
+
+
+-----------------------------------------------------------------------------
+
 -- FUNCIÓN PARA INSERTAR CONVOCATORIA, CRONOGRAMA Y ETAPA
  CREATE OR REPLACE FUNCTION fn_registrarConvocatoria(
 					
@@ -1144,6 +1341,46 @@ select * from fn_FiltroCurriculo(
 					
 -- CONSULTA PARA SELECCIONAR AL CANDIDATO QUE A SUPERADO LAS EVALUACIONES
 
+select*from experiencia_laboral
+
+update usuario
+set tipo ='A'
+where codigo_usuario = 2;
+
+update candidato
+set codigo_cargo =1
+where doc_id = '12345678';
+
+
+select 
+                        e.codigo_puesto_laboral, 
+                        f.nombre_formacion_laboral, 
+                        e.nombre_experiencia_laboral 
+                    from 
+                        formacion_laboral f inner join experiencia_laboral e
+                    on 
+                        f.codigo_formacion_laboral = e.codigo_formacion_laboral
+                    where f.codigo_formacion_laboral = 1;
+					
+select * from experiencia_laboral 
+                    where codigo_formacion_laboral = 1;
+					
+					
+					
+UPDATE 
+                    experiencia_requerida
+                SET 
+                    experiencia_requerida = :p_nomb_req, 
+                    duracion = :p_dur, 
+                    codigo_puesto_laboral = :p_codigo_puesto
+                where
+                    codigo_experiencia_requerida = :p_cod_req
+					
+					
+					delete from 
+                    formacion_laboral 
+                where
+                    codigo_experiencia_requerida = :p_cod_req
 
 
 

@@ -315,9 +315,9 @@ require_once 'validar.datos.sesion.view.php';
                                                     <p>
                                                         <input type="hidden" value="" id="txtTipoOperacion" name="txtTipoOperacion">
                                                         Código <input type="text" 
-                                                                      name="txtCodigo" 
-                                                                      id="txtCodigo" 
-                                                                      class="form-control input-sm text-bold" 
+                                                                      name="txtCodigo2" 
+                                                                      id="txtCodigo2" 
+                                                                      class="form-control input-sm" 
                                                                       readonly="">
                                                     </p>
                                                 </div>
@@ -334,7 +334,7 @@ require_once 'validar.datos.sesion.view.php';
                                                 <div class="col-xs-7">
                                                     <p>
                                                         Formación
-                                                        <select required="" name="cboExperiencia" id="cboExperiencia" class="form-control input-sm">
+                                                        <select required="" name="cboFormacionLaboral" id="cboFormacionLaboral" class="form-control input-sm">
                                                             <option> - </option>
                                                             <option value="Abogado especialista en constructoras">Abogado especialista en constructoras</option>
                                                             <option value="Administrador">Administrador</option>
@@ -379,10 +379,10 @@ require_once 'validar.datos.sesion.view.php';
                                                 <div class="col-xs-11">
                                                     <p>
                                                         Detalle de la experiencia / duración (meses o años) <textarea type="text" 
-                                                                                         name="txtCondiciones" 
-                                                                                         id="txtCondiciones" 
+                                                                                         name="txtExperienciaLaboral" 
+                                                                                         id="txtExperienciaLaboral" 
                                                                                          required=""
-                                                                                         rows="10"
+                                                                                         rows="12"
                                                                                          class="form-control input-sm"></textarea>
                                                     </p>
                                                 </div>
