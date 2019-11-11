@@ -7,13 +7,16 @@ class puestoSeleccionado extends Conexion {
     public function leerDatos($codigo_puesto) {
         try {
             $sql = "
-                    select
+                    select 
                             *
                     from
-                            puesto_laboral l inner join experiencia_requerida e
-							on l.codigo_puesto_laboral = e.codigo_puesto_laboral
+                            puesto_laboral p inner join experiencia_laboral e
+                    on
+                            p.codigo_puesto_laboral = e.codigo_experiencia_laboral inner join formacion_laboral f
+                    on
+                            f.codigo_formacion_laboral = e.codigo_formacion_laboral
                     where
-                            l.codigo_puesto_laboral = :p_puesto_id
+                            p.codigo_puesto_laboral = :p_puesto_id
 
                 ";
 //            $sql = "

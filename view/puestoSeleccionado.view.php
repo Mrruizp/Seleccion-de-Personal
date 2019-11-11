@@ -175,8 +175,8 @@ require_once '../controller/puestoSeleccionado.leer.datos.controller.php';
                                             <div class="form-group">
                                                 <p>EXPERIENCIA COMO:</p>
                                                 <ul>
-                                                    <?php echo $resultado["experiencia_requerida"]; ?>
-                                                    <?php echo $resultado["duracion"]; ?>
+                                                    <?php echo $resultado["nombre_experiencia_laboral"]; ?>
+                                                    
                                                 </ul>
                                             </div>
                                         </div>

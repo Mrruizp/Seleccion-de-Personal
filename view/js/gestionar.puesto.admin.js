@@ -2,8 +2,9 @@ $(document).ready(function () {
     //Esto se ejecuta cuando carga la página
     //alert("ha cargado la página");
     cargarComboConvocatoria("#cboConvocatoria", "seleccione");
-    cargarComboPuesto("#cboPuesto", "seleccione");
+    //cargarComboPuesto("#cboPuesto", "seleccione");
     listar();
+    listarFormacion();
     listarExperiencia();
 });
 
@@ -247,10 +248,10 @@ function eliminar(codPues) {
             });
 
 }
-function listarExperiencia() {
+function listarFormacion() {
     $.post
             (
-                    "../controller/gestionarExperienciaLaboral.listar.controller.php"
+                    "../controller/gestionarFormacionLaboral.listar.controller.php"
 
                     ).done(function (resultado) {
         var datosJSON = resultado;
@@ -262,10 +263,8 @@ function listarExperiencia() {
             html += '<table id="tabla-listado2" class="table table-bordered table-striped">';
             html += '<thead>';
             html += '<tr style="background-color: #ededed; height:25px;">';
-            html += '<th style="text-align: center">CODIGO PUESTO</th>';
             html += '<th style="text-align: center">CODIGO FORMACION</th>';
             html += '<th style="text-align: center">NOMBRE DE LA FORMACIÓN LABORAL</th>';
-            html += '<th style="text-align: center">NOMBRE DE LA EXPERIENCIA LABORAL</th>';
             html += '<th style="text-align: center">OPCIONES</th>';
             html += '</tr>';
             html += '</thead>';
@@ -274,14 +273,12 @@ function listarExperiencia() {
             //Detalle
             $.each(datosJSON.datos, function (i, item) {
                 html += '<tr>';
-                html += '<td align="center">' + item.codigo_puesto_laboral + '</td>';
                 html += '<td align="center">' + item.codigo_formacion_laboral + '</td>';
                 html += '<td align="center">' + item.nombre_formacion_laboral + '</td>';
-                html += '<td align="justify">' + item.nombre_experiencia_laboral + '</td>';
                 html += '<td align="center">';
-                html += '<button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal2" onclick="leerDatosExperiencia(' + item.codigo_formacion_laboral + ')"><i class="fa fa-pencil"></i></button>';
+                html += '<button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal2" onclick="leerDatosFormacion(' + item.codigo_formacion_laboral + ')"><i class="fa fa-pencil"></i></button>';
                 html += '&nbsp;&nbsp;';
-                html += '<button type="button" class="btn btn-danger btn-xs" onclick="eliminarExperiencia(' + item.codigo_formacion_laboral + ')"><i class="fa fa-close"></i></button>';
+                html += '<button type="button" class="btn btn-danger btn-xs" onclick="eliminarFormacion(' + item.codigo_formacion_laboral + ')"><i class="fa fa-close"></i></button>';
                 html += '</td>';
                 html += '</tr>';
             });
@@ -338,11 +335,10 @@ $("#frmgrabar2").submit(function (event) {
                     }
 
                     $.post(
-                            "../controller/gestionarExperienciaLaboral.agregar.editar.controller.php",
+                            "../controller/gestionarFormacionLaboral.agregar.editar.controller.php",
                             {
-                                p_codigo_puesto: $("#cboPuesto").val(),
                                 p_nomb_for: $("#cboFormacionLaboral").val(),
-                                p_nomb_exp: $("#txtExperienciaLaboral").val(),
+                               // p_nomb_exp: $("#txtExperienciaLaboral").val(),
                                 p_tipo_ope: $("#txtTipoOperacion").val(),
                                 p_cod_for: codReq
                             }
@@ -352,7 +348,7 @@ $("#frmgrabar2").submit(function (event) {
                         if (datosJSON.estado === 200) {
                             swal("Exito", datosJSON.mensaje, "success");
                             $("#btncerrar2").click(); //Cerrar la ventana 
-                            listarExperiencia(); //actualizar la lista
+                            listarFormacion(); //actualizar la lista
                         } else {
                             swal("Mensaje del sistema", resultado, "warning");
                         }
@@ -370,20 +366,19 @@ $("#frmgrabar2").submit(function (event) {
 
 $("#btnagregar2").click(function () {
     $("#txtTipoOperacion").val("agregar");
-    $("#cboPuesto").val("");
     $("#cboFormacionLaboral").val("");
-    $("#txtExperienciaLaboral").val("");
-    $("#titulomodal2").html("Agregar nueva experiencia");
+    //$("#txtExperienciaLaboral").val("");
+    $("#titulomodal2").html("Agregar nueva formación");
 });
 
 
 $("#myModal2").on("shown.bs.modal", function () {
     $("#txtFecha").focus();
 });
-function leerDatosExperiencia(codReq) { //Requisitos o exigencias del Puesto
+function leerDatosFormacion(codReq) { //Requisitos o exigencias del Puesto
     $.post
             (
-                    "../controller/gestionarExperienciaLaboral.leer.datos.controller.php",
+                    "../controller/gestionarFormacionLaboral.leer.datos.controller.php",
                     {
                         p_cod_for: codReq
                     }
@@ -393,10 +388,8 @@ function leerDatosExperiencia(codReq) { //Requisitos o exigencias del Puesto
         {
             $("#txtTipoOperacion").val("editar");
             $("#txtCodigo2").val(jsonResultado.datos.codigo_formacion_laboral);
-                                
-            $("#cboPuesto").val(jsonResultado.datos.codigo_puesto_laboral);
             $("#cboFormacionLaboral").val(jsonResultado.datos.nombre_formacion_laboral);
-            $("#txtExperienciaLaboral").val(jsonResultado.datos.nombre_experiencia_laboral);
+          //  $("#txtExperienciaLaboral").val(jsonResultado.datos.nombre_experiencia_laboral);
             $("#titulomodal2").html("Modificar datos de formación y experiencia");
             
         }
@@ -405,7 +398,131 @@ function leerDatosExperiencia(codReq) { //Requisitos o exigencias del Puesto
         swal("Error", datosJSON.mensaje, "error");
     });
 }
-function eliminarExperiencia(codReq) { //Requisitos o exigencias del Puesto
+function eliminarFormacion(codReq) { //Requisitos o exigencias del Puesto
+    swal({
+        title: "Confirme",
+        text: "¿Esta seguro de eliminar el registro seleccionado?",
+        showCancelButton: true,
+        confirmButtonColor: '#d93f1f',
+        confirmButtonText: 'Si',
+        cancelButtonText: "No",
+        closeOnConfirm: false,
+        closeOnCancel: true,
+        imageUrl: "../images/eliminar2.png"
+    },
+            function (isConfirm) {
+                if (isConfirm) {
+                    $.post(
+                            "../controller/gestionarFormacionLaboral.eliminar.controller.php",
+                            {
+                                p_cod_for: codReq
+                            }
+                    ).done(function (resultado) {
+                        var datosJSON = resultado;
+                        if (datosJSON.estado === 200) { //ok
+                            listarFormacion();
+                            swal("Exito", datosJSON.mensaje, "success");
+                        }
+
+                    }).fail(function (error) {
+                        var datosJSON = $.parseJSON(error.responseText);
+                        swal("Error", datosJSON.mensaje, "error");
+                    });
+
+                }
+            });
+
+}
+
+function listarExperiencia() {
+    $.post
+            (
+                    "../controller/gestionarExperienciaLaboral.listar.controller.php"
+
+                    ).done(function (resultado) {
+        var datosJSON = resultado;
+
+        if (datosJSON.estado === 200) {
+            var html = "";
+
+            html += '<small>';
+            html += '<table id="tabla-listado3" class="table table-bordered table-striped">';
+            html += '<thead>';
+            html += '<tr style="background-color: #ededed; height:25px;">';
+            html += '<th style="text-align: center">CODIGO PUESTO</th>';
+            html += '<th style="text-align: center">CODIGO FORMACION</th>';
+            html += '<th style="text-align: center">CODIGO EXPERIENCIA</th>';
+            html += '<th style="text-align: center">EXPERIENCIA LABORAL</th>';
+            html += '<th style="text-align: center">OPCIONES</th>';
+            html += '</tr>';
+            html += '</thead>';
+            html += '<tbody>';
+
+            //Detalle
+            $.each(datosJSON.datos, function (i, item) {
+                html += '<tr>';
+                html += '<td align="center">' + item.codigo_puesto_laboral + '</td>';
+                html += '<td align="center">' + item.codigo_formacion_laboral + '</td>';
+                html += '<td align="center">' + item.codigo_experiencia_laboral + '</td>';
+                html += '<td align="center">' + item.nombre_experiencia_laboral + '</td>';
+                html += '<td align="center">';
+                html += '<button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal3" onclick="leerDatosExperiencia(' + item.codigo_experiencia_laboral + ')"><i class="fa fa-pencil"></i></button>';
+                html += '&nbsp;&nbsp;';
+                html += '<button type="button" class="btn btn-danger btn-xs" onclick="eliminarExperiencia(' + item.codigo_experiencia_laboral + ')"><i class="fa fa-close"></i></button>';
+                html += '</td>';
+                html += '</tr>';
+            });
+
+            html += '</tbody>';
+            html += '</table>';
+            html += '</small>';
+
+            $("#listado3").html(html);
+
+
+            $('#tabla-listado3').dataTable({
+                "aaSorting": [[1, "asc"]]
+            });
+
+
+
+        } else {
+            //swal("Mensaje del sistema", resultado , "warning");
+        }
+
+    }).fail(function (error) {
+        var datosJSON = $.parseJSON(error.responseText);
+        //swal("Error", datosJSON.mensaje , "error"); 
+    });
+}
+
+function leerDatosExperiencia(codReq) { //Requisitos o exigencias del Puesto
+    $.post
+            (
+                    "../controller/gestionarFormacionLaboral.leer.datos.controller.php",
+                    {
+                        p_cod_exp: codReq
+                    }
+            ).done(function (resultado) {
+        var jsonResultado = resultado;
+        if (jsonResultado.estado === 200) 
+        {
+            $("#txtTipoOperacion").val("editar");
+            $("#txtCodigo3").val(jsonResultado.datos.codigo_experiencia_laboral);
+            $("#cboPuesto").val(jsonResultado.datos.codigo_puesto_laboral);
+            $("#cboFormacion").val(jsonResultado.datos.codigo_formacion_laboral);
+            $("#cboFormacion").val(jsonResultado.datos.nombre_experiencia_laboral);
+          //  $("#txtExperienciaLaboral").val(jsonResultado.datos.nombre_experiencia_laboral);
+            $("#titulomodal2").html("Modificar datos de formación y experiencia");
+            
+        }
+    }).fail(function (error) {
+        var datosJSON = $.parseJSON(error.responseText);
+        swal("Error", datosJSON.mensaje, "error");
+    });
+}
+
+function eliminarExperiencia(codReq) {
     swal({
         title: "Confirme",
         text: "¿Esta seguro de eliminar el registro seleccionado?",
@@ -427,7 +544,7 @@ function eliminarExperiencia(codReq) { //Requisitos o exigencias del Puesto
                     ).done(function (resultado) {
                         var datosJSON = resultado;
                         if (datosJSON.estado === 200) { //ok
-                            listarExperiencia();
+                            listarFormacion();
                             swal("Exito", datosJSON.mensaje, "success");
                         }
 

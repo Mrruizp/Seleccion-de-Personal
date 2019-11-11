@@ -60,14 +60,25 @@ require_once 'validar.datos.sesion.view.php';
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-5">
                             <div class="box box-warning">
                                 <section class="content-header">
-                                    <h3>Requisitos o exigencias del Puesto</h3>
-                                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal2" id="btnagregar2"><i class="fa fa-briefcase"></i> Agregar nueva experiencia</button>
+                                    <h3>Formación Laboral</h3>
+                                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal2" id="btnagregar2"><i class="fa fa-briefcase"></i> Agregar nueva formación</button>
                                 </section>
                                 <div class="box-body">
                                     <div id="listado2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="box box-warning">
+                                <section class="content-header">
+                                    <h3>Experiencia Laboral</h3>
+                                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal3" id="btnagregar3"><i class="fa fa-briefcase"></i> Agregar nueva experiencia</button>
+                                </section>
+                                <div class="box-body">
+                                    <div id="listado3"></div>
                                 </div>
                             </div>
                         </div>
@@ -307,7 +318,7 @@ require_once 'validar.datos.sesion.view.php';
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h4 class="modal-title" id="titulomodal2">Agregar nueva experiencia</h4>
+                                            <h4 class="modal-title" id="titulomodal2">Agregar nueva formación</h4>
                                         </div>
                                         <div class="modal-body">
                                             <div class="row">
@@ -321,62 +332,31 @@ require_once 'validar.datos.sesion.view.php';
                                                                       readonly="">
                                                     </p>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xs-4">
-                                                    <p>
-                                                        Código Puesto
-                                                        <select required="" name="cboPuesto" id="cboPuesto" class="form-control input-sm">
-
-                                                        </select>
-                                                    </p>
-                                                </div>
                                                 <div class="col-xs-7">
                                                     <p>
                                                         Formación
                                                         <select required="" name="cboFormacionLaboral" id="cboFormacionLaboral" class="form-control input-sm">
                                                             <option> - </option>
-                                                            <option value="Abogado especialista en constructoras">Abogado especialista en constructoras</option>
+                                                            <option value="Abogado">Abogado</option>
                                                             <option value="Administrador">Administrador</option>
-                                                            <option value="Arquitecto especializado en diseños de puentes">Arquitecto especializado en diseños de puentes</option>
-                                                            <option value="Arquitecto especializado en diseño de casas">Arquitecto especializado en diseño de casas</option>
-                                                            <option value="Arquitecto especializado en diseño de interiores">Arquitecto especializado en diseño de interiores</option>
-                                                            <option value="Asistente de costo y presupuesto">Asistente de costo y presupuesto</option>
-                                                            <option value="Asistente de logística">Asistente de logística</option>
-                                                            <option value="Consulta y atención de reclamos">Consulta y atención de reclamos</option>
+                                                            <option value="Arquitecto">Arquitecto</option>
+                                                            <option value="Asistente Social">Asistente Social</option>
                                                             <option value="Contador">Contador</option>
-                                                            <option value="Ingeniero civil especialista en cálidad">Ingeniero civil especialista en cálidad</option>
-                                                            <option value="Ingeniero civil especialista en carreteras">Ingeniero civil especialista en carreteras</option>
-                                                            <option value="Ingeniero civil especialista en estudios de suelos">Ingeniero civil especialista en estudios de suelos</option>
-                                                            <option value="Ingeniero civil especialista en medio ambiente">Ingeniero civil especialista en medio ambiente</option>
-                                                            <option value="Ingeniero civil especialista en puentes">Ingeniero civil especialista en puentes</option>
-                                                            <option value="Ingeniero civil especialista en supervición de obras">Ingeniero civil especialista en supervición de obras</option>
+                                                            <option value="Ingeniero civil y Ambiental">Ingeniero civil y Ambiental</option>
+                                                            <option value="Ingeniero Electricista">Ingeniero Electricista</option>
                                                             <option value="Ingeniero de software">Ingeniero de software</option>
-                                                            <option value="Ingeniero especialista en estructuras">Ingeniero especialista en estructuras</option>
                                                             <option value="Ingeniero hidráulico">Ingeniero hidráulico</option>
-                                                            <option value="Jefe de Logística">Jefe de Logística</option>
-                                                            <option value="Jefe de obra">Jefe de obra</option>
-                                                            <option value="Jefe de proyectos">Jefe de proyectos</option>
-                                                            <option value="Jefe de proyectos de software">Jefe de proyectos de software</option>
                                                             <option value="Obrero constructor">Obrero constructor</option>
-                                                            <option value="Obrero mesclador de cemento">Obrero mesclador de cemento</option>
                                                             <option value="Prácticante de ingeniería civil">Prácticante de ingeniería civil</option>
                                                             <option value="Prácticante de ingeniería de software">Prácticante de ingeniería de software</option>
-                                                            <option value="prácticante programador android">prácticante programador android</option>
-                                                            <option value="prácticante programador de escritorio">prácticante programador de escritorio</option>
-                                                            <option value="prácticante programador web">prácticante programador web</option>
-                                                            <option value="Programador android">Programador android</option>
-                                                            <option value="Programador de escritorio">Programador de escritorio</option>
-                                                            <option value="Programador web">Programador web</option>
-                                                            <option value="secretaria">secretaria</option>
+                                                            <option value="Secretariado">Secretariado</option>
                                                             <option value="Técnico en mantenimiento y reparaciones de pcs">Técnico en mantenimiento y reparaciones de pcs</option>
                                                             <option value="Técnico en maquinarías de construcción">Técnico en maquinarías de construcción</option>
-                                                            <option value="Técnico hidráulico">Técnico hidráulico</option>
                                                             <option value="Topógrafo">Topógrafo</option>
                                                         </select>
                                                     </p>
                                                 </div>
-                                                <div class="col-xs-11">
+                                               <!-- <div class="col-xs-11">
                                                     <p>
                                                         Detalle de la experiencia / duración (meses o años) <textarea type="text" 
                                                                                          name="txtExperienciaLaboral" 
@@ -385,12 +365,83 @@ require_once 'validar.datos.sesion.view.php';
                                                                                          rows="12"
                                                                                          class="form-control input-sm"></textarea>
                                                     </p>
-                                                </div>
+                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="submit" class="btn btn-warning" aria-hidden="true"><i class="fa fa-save"></i> Grabar</button>
                                             <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncerrar2"><i class="fa fa-close"></i> Cerrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </small>
+                    <!-- FIN del formulario modal -->
+                
+
+                    <!-- INICIO del formulario modal -->
+                    
+                    <small>
+                        <form id="frmgrabar3">
+                            <div class="modal fade" id="myModal3" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="titulomodal2">Agregar nueva experiencia</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <p>
+                                                        <input type="hidden" value="" id="txtTipoOperacion" name="txtTipoOperacion">
+                                                        Código <input type="text" 
+                                                                      name="txtCodigo3" 
+                                                                      id="txtCodigo3" 
+                                                                      class="form-control input-sm" 
+                                                                      readonly="">
+                                                    </p>
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <p>
+                                                        Código Puesto
+                                                        <select required="" name="cboPuesto" id="cboPuesto" class="form-control input-sm">
+
+                                                        </select>
+                                                    </p>
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <p>
+                                                        Código Formación
+                                                        <select required="" name="cboFormacion" id="cboFormacion" class="form-control input-sm">
+
+                                                        </select>
+                                                    </p>
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <p>
+                                                        Duración
+                                                        <select required="" name="cboDuracion" id="cboDuracion" class="form-control input-sm">
+
+                                                        </select>
+                                                    </p>
+                                                </div>
+                                                <div class="col-xs-12">
+                                                    <p>
+                                                        Detalle Experiencia <textarea type="text" 
+                                                                                      name="txtExperiencia" 
+                                                                                      id="txtExperiencia" 
+                                                                                      required=""
+                                                                                      rows="8"
+                                                                                      class="form-control input-sm"></textarea>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-warning" aria-hidden="true"><i class="fa fa-save"></i> Grabar</button>
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal" id="btncerrar3"><i class="fa fa-close"></i> Cerrar</button>
                                         </div>
                                     </div>
                                 </div>

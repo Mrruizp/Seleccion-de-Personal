@@ -2,22 +2,36 @@
 
 require_once '../data/Conexion.class.php';
 
-class GestionarExperienciaLaboral extends Conexion {
+class GestionarFormacionLaboral extends Conexion {
 
     private $codigo_formacion_laboral;
     private $nombre_formacion_laboral;
+
+    public function getCodigo_formacion_laboral() {
+        return $this->codigo_formacion_laboral;
+    }
+
+    public function getNombre_formacion_laboral() {
+        return $this->nombre_formacion_laboral;
+    }
+
+    public function setCodigo_formacion_laboral($codigo_formacion_laboral) {
+        $this->codigo_formacion_laboral = $codigo_formacion_laboral;
+    }
+
+    public function setNombre_formacion_laboral($nombre_formacion_laboral) {
+        $this->nombre_formacion_laboral = $nombre_formacion_laboral;
+    }
 
     
     public function listar() {
         try {
             $sql = "
                     SELECT 
-                        codigo_puesto_laboral,
-                        codigo_formacion_laboral,
-                        codigo_experiencia_laboral,
-                        nombre_experiencia_laboral
+                        codigo_formacion_laboral, 
+                        nombre_formacion_laboral
                     FROM 
-                        experiencia_laboral
+                        formacion_laboral
 		ORDER BY
 			1
                 ";

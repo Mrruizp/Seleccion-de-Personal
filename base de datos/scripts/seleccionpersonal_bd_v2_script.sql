@@ -670,7 +670,7 @@ values
 		de la entrevista, dando como seleccionado al
 		candidato idóneo al puesto de trabajo.'
 		);	
-
+/*
 -- FUNCIÓN PARA INSERTAR formación y experiencia
  CREATE OR REPLACE FUNCTION fn_registrarFormacionExperiencia(
 	 
@@ -736,114 +736,7 @@ select * from formacion_laboral;
 
 
 -----------------------------------------------------------------------------
-select * from formacion_laboral
 
-
--- FUNCIÓN PARA UPDATE formación y experiencia laboral
- CREATE OR REPLACE FUNCTION fn_actualizarFormacionExperiencia(
-	 
-	 				p_codigo_puesto_laboral      integer,
-	 				p_codigo_formacion_laboral   integer,
-	 				p_nombre_formacion_laboral   character varying(100),
-	 				p_nombre_experiencia_laboral character varying(500)
-	 
-					 )  RETURNS void AS   
- $$
- begin		
- 	
-	        update 
-				formacion_laboral
-			set 
-				nombre_formacion_laboral = p_nombre_formacion_laboral
-			where 
-				codigo_formacion_laboral = p_codigo_formacion_laboral;
-			
-			update 
-				experiencia_laboral
-			set 
-				codigo_puesto_laboral = p_codigo_puesto_laboral
-				nombre_experiencia_laboral = p_nombre_experiencia_laboral			 
-			where 
-				codigo_formacion_laboral = p_codigo_formacion_laboral;
-                    
- end
- $$ language plpgsql;	
- 
-select * from fn_actualizarFormacionExperiencia(
-	 
-	 				1
-	 				1
-	 				'Topógrafo',
-	 				'aaaaaaaaaaaaaaaaaaaaa'
-	 
-					 )
-
-select * from experiencia_laboral;
-select * from formacion_laboral;
-
-delete from formacion_laboral
-select * from puesto_laboral;
-select * from formacion_laboral;
-
- select * from fn_registrarFormacionExperiencia 
-                                                (
-													1,
-													1,
-													'Topógrafo',
-													'1 año en mediciones de áreas, usando estandares de calidad.
-													 1 año como asistente de topografía en base a expedientes técnicos'
-                                                );
-
-
------------------------------------------------------------------------------
-
-
--- FUNCIÓN PARA ELININAR formación y experiencia laboral
- CREATE OR REPLACE FUNCTION fn_eliminarFormacionExperiencia(
-	 
-	 				p_codigo_formacion_laboral integer
-	 
-					 )  RETURNS void AS   
- $$
- begin		
- 	
-	        delete from 
-                    experiencia_laboral 
-                where
-                    codigo_experiencia_laboral = p_codigo_formacion_laboral;
-					
-			delete from 
-                    formacion_laboral 
-                where
-                    codigo_formacion_laboral = p_codigo_formacion_laboral;
-                    
- end
- $$ language plpgsql;	
- 
-select * from fn_eliminarFormacionExperiencia
-					(
-	 					1
-	 
-					 )
-
-select * from experiencia_laboral;
-select * from formacion_laboral;
-
-delete from formacion_laboral
-select * from puesto_laboral;
-select * from formacion_laboral;
-
- select * from fn_eliminarFormacionExperiencia 
-                                                (
-													1,
-													1,
-													'Topógrafo',
-													'1 año en mediciones de áreas, usando estandares de calidad.
-													 1 año como asistente de topografía en base a expedientes técnicos'
-                                                );
-
-
------------------------------------------------------------------------------
 
 -- FUNCIÓN PARA INSERTAR CONVOCATORIA, CRONOGRAMA Y ETAPA
  CREATE OR REPLACE FUNCTION fn_registrarConvocatoria(
