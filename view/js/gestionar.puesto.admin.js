@@ -2,6 +2,9 @@ $(document).ready(function () {
     //Esto se ejecuta cuando carga la página
     //alert("ha cargado la página");
     cargarComboConvocatoria("#cboConvocatoria", "seleccione");
+    cargarCbCodigoPuesto("#cboPuesto", "seleccione");
+    cargarCbCodigoFormacionLaboral("#cboFormacion", "seleccione");
+    
     //cargarComboPuesto("#cboPuesto", "seleccione");
     listar();
     listarFormacion();
@@ -496,6 +499,88 @@ function listarExperiencia() {
     });
 }
 
+$("#frmgrabar2").submit(function (event) {
+    event.preventDefault();
+
+    swal({
+        title: "Confirme",
+        text: "¿Esta seguro de grabar los datos ingresados?",
+        showCancelButton: true,
+        confirmButtonColor: '#3d9205',
+        confirmButtonText: 'Si',
+        cancelButtonText: "No",
+        closeOnConfirm: false,
+        closeOnCancel: true,
+        imageUrl: "../images/pregunta.png"
+    },
+            function (isConfirm) {
+
+                if (isConfirm) { //el usuario hizo clic en el boton SI     
+                    //procedo a grabar
+                    //Llamar al controlador para grabar los datos
+
+                    //var codLab = ($("#txtTipoOperacion").val()==="agregar")? 
+
+                    var codReq = "";
+                    if ($("#txtTipoOperacion").val() === "agregar") {
+                        codReq = "0";
+                    } else {
+                        codReq = $("#txtCodigo2").val();
+                    }
+
+                    $.post(
+                            "../controller/gestionarFormacionLaboral.agregar.editar.controller.php",
+                            {
+                                p_nomb_for: $("#cboFormacionLaboral").val(),
+                               // p_nomb_exp: $("#txtExperienciaLaboral").val(),
+                                p_tipo_ope: $("#txtTipoOperacion").val(),
+                           /*     
+                                $("#txtTipoOperacion").val();
+                                $("#txtCodigo3").val();
+                                $("#cboPuesto").val();
+                                $("#cboFormacion").val();
+                                $("#cboDuracion").val();
+                                $("#txtExperiencia").val();
+                                
+                                */
+
+
+                                p_cod_for: codReq
+                            }
+                    ).done(function (resultado) {
+                        var datosJSON = resultado;
+
+                        if (datosJSON.estado === 200) {
+                            swal("Exito", datosJSON.mensaje, "success");
+                            $("#btncerrar2").click(); //Cerrar la ventana 
+                            listarFormacion(); //actualizar la lista
+                        } else {
+                            swal("Mensaje del sistema", resultado, "warning");
+                        }
+
+                    }).fail(function (error) {
+                        var datosJSON = $.parseJSON(error.responseText);
+                        swal("Error", datosJSON.mensaje, "error");
+                    });
+
+                }
+            });
+
+});
+
+
+$("#btnagregar2").click(function () {
+    $("#txtTipoOperacion").val("agregar");
+    $("#cboFormacionLaboral").val("");
+    //$("#txtExperienciaLaboral").val("");
+    $("#titulomodal3").html("Agregar nueva formación");
+});
+
+
+$("#myModal2").on("shown.bs.modal", function () {
+    $("#txtFecha").focus();
+});
+
 function leerDatosExperiencia(codReq) { //Requisitos o exigencias del Puesto
     $.post
             (
@@ -511,9 +596,10 @@ function leerDatosExperiencia(codReq) { //Requisitos o exigencias del Puesto
             $("#txtCodigo3").val(jsonResultado.datos.codigo_experiencia_laboral);
             $("#cboPuesto").val(jsonResultado.datos.codigo_puesto_laboral);
             $("#cboFormacion").val(jsonResultado.datos.codigo_formacion_laboral);
-            $("#cboFormacion").val(jsonResultado.datos.nombre_experiencia_laboral);
+            $("#cboDuracion").val(jsonResultado.datos.duracion_experiencia_laboral);
+            $("#txtExperiencia").val(jsonResultado.datos.nombre_experiencia_laboral);
           //  $("#txtExperienciaLaboral").val(jsonResultado.datos.nombre_experiencia_laboral);
-            $("#titulomodal2").html("Modificar datos de formación y experiencia");
+            $("#titulomodal3").html("Modificar experiencia");
             
         }
     }).fail(function (error) {

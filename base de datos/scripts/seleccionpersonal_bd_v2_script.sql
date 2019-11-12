@@ -241,7 +241,7 @@ ALTER COLUMN condiciones_trabajo TYPE character varying(500);
 -- EXPERIENCIA: El puesto de trabajo quizás requiere cierta experiencia para cada formación del candidato
 	codigo_experiencia_laboral integer,
 	nombre_experiencia_laboral character varying(500)not null, -- SE DEBE MANEJAR UN COMBO PARA COMPARAR CON LA ESPERIENCIA DEL CANDIDATO Y FILTRAR 1
-    --duracion_experiencia_laboral character varying(100) not null, 
+    duracion_experiencia_laboral character varying(20) not null, 
 	codigo_puesto_laboral integer,
 	codigo_formacion_laboral integer,	 
 	CONSTRAINT pk_codigo_experiencia_laboral PRIMARY KEY(codigo_experiencia_laboral),

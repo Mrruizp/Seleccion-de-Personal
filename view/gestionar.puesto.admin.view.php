@@ -389,7 +389,7 @@ require_once 'validar.datos.sesion.view.php';
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h4 class="modal-title" id="titulomodal2">Agregar nueva experiencia</h4>
+                                            <h4 class="modal-title" id="titulomodal3">Agregar nueva experiencia</h4>
                                         </div>
                                         <div class="modal-body">
                                             <div class="row">
@@ -415,7 +415,7 @@ require_once 'validar.datos.sesion.view.php';
                                                     <p>
                                                         Código Formación
                                                         <select required="" name="cboFormacion" id="cboFormacion" class="form-control input-sm">
-
+                                                            
                                                         </select>
                                                     </p>
                                                 </div>
@@ -423,7 +423,15 @@ require_once 'validar.datos.sesion.view.php';
                                                     <p>
                                                         Duración
                                                         <select required="" name="cboDuracion" id="cboDuracion" class="form-control input-sm">
-
+                                                            <option>-</option>
+                                                            <option value="sin tiempo">sin tiempo</option>
+                                                            <option value="menos de 1 año">menos de 1 año</option>
+                                                            <option value="1">1 año</option>
+                                                            <option value="2">2 años</option>
+                                                            <option value="3">3 años</option>
+                                                            <option value="4">4 años</option>
+                                                            <option value="5">5 años</option>
+                                                            <option value="mas de 5 años">más de 5 años</option>
                                                         </select>
                                                     </p>
                                                 </div>
@@ -494,6 +502,7 @@ require_once 'validar.datos.sesion.view.php';
 
             });
         </script>    
+        <script src="js/cbCodigo.js" type="text/javascript"></script>
         <script src="js/convocatoria.js" type="text/javascript"></script>
         <script src="js/puesto.js" type="text/javascript"></script>
         <script src="js/gestionar.puesto.admin.js" type="text/javascript"></script>
