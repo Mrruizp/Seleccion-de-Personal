@@ -456,6 +456,7 @@ function listarExperiencia() {
             html += '<th style="text-align: center">CODIGO FORMACION</th>';
             html += '<th style="text-align: center">CODIGO EXPERIENCIA</th>';
             html += '<th style="text-align: center">EXPERIENCIA LABORAL</th>';
+            html += '<th style="text-align: center">DURACIÓN</th>';
             html += '<th style="text-align: center">OPCIONES</th>';
             html += '</tr>';
             html += '</thead>';
@@ -468,6 +469,7 @@ function listarExperiencia() {
                 html += '<td align="center">' + item.codigo_formacion_laboral + '</td>';
                 html += '<td align="center">' + item.codigo_experiencia_laboral + '</td>';
                 html += '<td align="center">' + item.nombre_experiencia_laboral + '</td>';
+                html += '<td align="center">' + item.duracion_experiencia_laboral + '</td>';
                 html += '<td align="center">';
                 html += '<button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal3" onclick="leerDatosExperiencia(' + item.codigo_experiencia_laboral + ')"><i class="fa fa-pencil"></i></button>';
                 html += '&nbsp;&nbsp;';
@@ -499,7 +501,7 @@ function listarExperiencia() {
     });
 }
 
-$("#frmgrabar2").submit(function (event) {
+$("#frmgrabar3").submit(function (event) {
     event.preventDefault();
 
     swal({
@@ -525,35 +527,26 @@ $("#frmgrabar2").submit(function (event) {
                     if ($("#txtTipoOperacion").val() === "agregar") {
                         codReq = "0";
                     } else {
-                        codReq = $("#txtCodigo2").val();
+                        codReq = $("#txtCodigo3").val();
                     }
 
                     $.post(
-                            "../controller/gestionarFormacionLaboral.agregar.editar.controller.php",
+                            "../controller/gestionarExperienciaLaboral.agregar.editar.controller.php",
                             {
-                                p_nomb_for: $("#cboFormacionLaboral").val(),
-                               // p_nomb_exp: $("#txtExperienciaLaboral").val(),
+                                p_cod_puesto: $("#cboPuesto").val(),
+                                p_cod_formacion: $("#cboFormacion").val(),
+                                p_duracion: $("#cboDuracion").val(),
+                                p_nombre_Experiencia: $("#txtExperiencia").val(),
                                 p_tipo_ope: $("#txtTipoOperacion").val(),
-                           /*     
-                                $("#txtTipoOperacion").val();
-                                $("#txtCodigo3").val();
-                                $("#cboPuesto").val();
-                                $("#cboFormacion").val();
-                                $("#cboDuracion").val();
-                                $("#txtExperiencia").val();
-                                
-                                */
-
-
-                                p_cod_for: codReq
+                                p_cod_exp: codReq
                             }
                     ).done(function (resultado) {
                         var datosJSON = resultado;
 
                         if (datosJSON.estado === 200) {
                             swal("Exito", datosJSON.mensaje, "success");
-                            $("#btncerrar2").click(); //Cerrar la ventana 
-                            listarFormacion(); //actualizar la lista
+                            $("#btncerrar3").click(); //Cerrar la ventana 
+                            listarExperiencia()(); //actualizar la lista
                         } else {
                             swal("Mensaje del sistema", resultado, "warning");
                         }
@@ -569,22 +562,25 @@ $("#frmgrabar2").submit(function (event) {
 });
 
 
-$("#btnagregar2").click(function () {
+$("#btnagregar3").click(function () {
     $("#txtTipoOperacion").val("agregar");
-    $("#cboFormacionLaboral").val("");
-    //$("#txtExperienciaLaboral").val("");
-    $("#titulomodal3").html("Agregar nueva formación");
+    $("#cboPuesto").val("");
+    $("#cboDuracion").val("");
+    $("#txtExperiencia").val("");
+    $("#txtCodigo3").val("");
+    $("#cboFormacion").val("");
+    $("#titulomodal3").html("Agregar nueva experiencia");
 });
 
 
-$("#myModal2").on("shown.bs.modal", function () {
+$("#myModal3").on("shown.bs.modal", function () {
     $("#txtFecha").focus();
 });
 
 function leerDatosExperiencia(codReq) { //Requisitos o exigencias del Puesto
     $.post
             (
-                    "../controller/gestionarFormacionLaboral.leer.datos.controller.php",
+                    "../controller/gestionarExperienciaLaboral.leer.datos.controller.php",
                     {
                         p_cod_exp: codReq
                     }
@@ -630,7 +626,7 @@ function eliminarExperiencia(codReq) {
                     ).done(function (resultado) {
                         var datosJSON = resultado;
                         if (datosJSON.estado === 200) { //ok
-                            listarFormacion();
+                            listarExperiencia();
                             swal("Exito", datosJSON.mensaje, "success");
                         }
 

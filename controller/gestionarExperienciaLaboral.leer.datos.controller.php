@@ -6,8 +6,8 @@ try {
     
     if 
         (
-            !isset($_POST["p_cod_for"]) ||
-            empty($_POST["p_cod_for"])
+            !isset($_POST["p_cod_exp"]) ||
+            empty($_POST["p_cod_exp"])
             
         )
     {
@@ -15,11 +15,11 @@ try {
             exit();
     }
     
-    $codForm = $_POST["p_cod_for"];
+    $codExp = $_POST["p_cod_exp"];
     
     
     $objGestionarExperienciaLaboral = new GestionarExperienciaLaboral();
-    $resultado = $objGestionarExperienciaLaboral->leerDatos($codForm);
+    $resultado = $objGestionarExperienciaLaboral->leerDatos($codExp);
     
     Helper::imprimeJSON(200, "", $resultado);
     

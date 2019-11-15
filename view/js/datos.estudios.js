@@ -105,7 +105,7 @@ $("#frmgrabar").submit(function(event){
                 "../controller/estudios.agregar.editar.controller.php",
                 {
                     p_institucion_educativa: $("#txtInstitucion").val(),
-                    p_titulo_estudios: $("#txtTitulo").val(),
+                    p_titulo_estudios: $("#cboFormacionAcademico").val(),
                     p_grado_estudio: $("#txtGrado").val(),
                     p_fecha_inicio: $("#txtFecha1").val(),
                     p_fecha_fin: $("#txtFecha2").val(),
@@ -137,7 +137,7 @@ $("#frmgrabar").submit(function(event){
 $("#btnagregar").click(function(){
     $("#txtTipoOperacion").val("agregar");
     $("#txtInstitucion").val("");
-    $("#txtTitulo").val("");
+    $("#cboFormacionAcademico").val("");
     $("#txtGrado").val("");
     $("#txtFecha1").val("");
     $("#txtFecha2").val("");
@@ -163,7 +163,7 @@ function leerDatos(codEst){
                 $("#txtTipoOperacion").val("editar");
                 $("#txtCodigo").val( jsonResultado.datos.codigo_estudio_candidato );
                 $("#txtInstitucion").val( jsonResultado.datos.institucion_educativa );
-                $("#txtTitulo").val( jsonResultado.datos.titulo_estudio );
+                $("#cboFormacionAcademico").val( jsonResultado.datos.titulo_estudio );
                 $("#txtGrado").val( jsonResultado.datos.grado_estudio );
                 $("#txtFecha1").val( jsonResultado.datos.fecha_inicio );
                 $("#txtFecha2").val( jsonResultado.datos.fecha_fin );

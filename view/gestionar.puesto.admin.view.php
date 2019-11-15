@@ -342,11 +342,11 @@ require_once 'validar.datos.sesion.view.php';
                                                             <option value="Arquitecto">Arquitecto</option>
                                                             <option value="Asistente Social">Asistente Social</option>
                                                             <option value="Contador">Contador</option>
-                                                            <option value="Ingeniero civil y Ambiental">Ingeniero civil y Ambiental</option>
+                                                            <option value="Ingeniero Civil y Ambiental">Ingeniero civil y Ambiental</option>
                                                             <option value="Ingeniero Electricista">Ingeniero Electricista</option>
-                                                            <option value="Ingeniero de software">Ingeniero de software</option>
-                                                            <option value="Ingeniero hidráulico">Ingeniero hidráulico</option>
-                                                            <option value="Obrero constructor">Obrero constructor</option>
+                                                            <option value="Ingeniero de Software">Ingeniero de software</option>
+                                                            <option value="Ingeniero Hidráulico">Ingeniero hidráulico</option>
+                                                            <option value="Obrero Constructor">Obrero constructor</option>
                                                             <option value="Prácticante de ingeniería civil">Prácticante de ingeniería civil</option>
                                                             <option value="Prácticante de ingeniería de software">Prácticante de ingeniería de software</option>
                                                             <option value="Secretariado">Secretariado</option>
@@ -393,7 +393,7 @@ require_once 'validar.datos.sesion.view.php';
                                         </div>
                                         <div class="modal-body">
                                             <div class="row">
-                                                <div class="col-xs-3">
+                                                <div class="col-xs-2">
                                                     <p>
                                                         <input type="hidden" value="" id="txtTipoOperacion" name="txtTipoOperacion">
                                                         Código <input type="text" 
@@ -419,11 +419,11 @@ require_once 'validar.datos.sesion.view.php';
                                                         </select>
                                                     </p>
                                                 </div>
-                                                <div class="col-xs-3">
+                                                <div class="col-xs-4">
                                                     <p>
                                                         Duración
                                                         <select required="" name="cboDuracion" id="cboDuracion" class="form-control input-sm">
-                                                            <option>-</option>
+                                                            <option selected>-</option>
                                                             <option value="sin tiempo">sin tiempo</option>
                                                             <option value="menos de 1 año">menos de 1 año</option>
                                                             <option value="1">1 año</option>

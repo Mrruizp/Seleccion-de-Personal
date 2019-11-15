@@ -18,7 +18,7 @@ try {
     $codForm = $_POST["p_cod_for"];
     
     $objGestionarExperienciaLaboral = new GestionarExperienciaLaboral();
-    $objGestionarExperienciaLaboral->setCodigo_formacion_laboral($codForm);
+    $objGestionarExperienciaLaboral->setCodigo_experiencia_laboral($codForm);
     $resultado = $objGestionarExperienciaLaboral->eliminar();
     
     if ($resultado){

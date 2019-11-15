@@ -670,7 +670,7 @@ values
 		de la entrevista, dando como seleccionado al
 		candidato idóneo al puesto de trabajo.'
 		);	
-/*
+
 -- FUNCIÓN PARA INSERTAR formación y experiencia
  CREATE OR REPLACE FUNCTION fn_registrarFormacionExperiencia(
 	 
@@ -1274,6 +1274,14 @@ UPDATE
                     formacion_laboral 
                 where
                     codigo_experiencia_requerida = :p_cod_req
+					
+					
+					
+-- CONSULTA PARA FILTRAR CV, FECHA: 15/11/2019
+
+select f.nombre_formacion_laboral from formacion_laboral f inner join experiencia_laboral e
+on f.codigo_formacion_laboral = e.codigo_formacion_laboral
+where nombre_formacion_laboral NOT IN (select titulo_estudio from estudio_candidato)
 
 
 

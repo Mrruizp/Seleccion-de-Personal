@@ -84,7 +84,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xs-12">
+                                    <div class="col-xs-9">
                                         <p>
                                             Institución Educativa<input type="text" 
                                                           name="txtInstitucion" 
@@ -95,18 +95,31 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xs-12">
+                                    <div class="col-xs-9">
                                         <p>
-                                            Título Académico<input type="text" 
-                                                          name="txtTitulo" 
-                                                          id="txtTitulo" 
-                                                          required=""
-                                                          class="form-control input-sm text-bold">
+                                            Profesión                                            
+                                                        <select required="" name="cboFormacionAcademico" id="cboFormacionAcademico" class="form-control input-sm">
+                                                            <option> - </option>
+                                                            <option value="Abogado">Abogado</option>
+                                                            <option value="Administrador">Administrador</option>
+                                                            <option value="Arquitecto">Arquitecto</option>
+                                                            <option value="Asistente Social">Asistente Social</option>
+                                                            <option value="Contador">Contador</option>
+                                                            <option value="Ingeniero Civil y Ambiental">Ingeniero civil y Ambiental</option>
+                                                            <option value="Ingeniero Electricista">Ingeniero Electricista</option>
+                                                            <option value="Ingeniero de Software">Ingeniero de software</option>
+                                                            <option value="Ingeniero Hidráulico">Ingeniero hidráulico</option>
+                                                            <option value="Obrero Constructor">Obrero constructor</option>                                                            
+                                                            <option value="Secretariado">Secretariado</option>
+                                                            <option value="Técnico en mantenimiento y reparaciones de pcs">Técnico en mantenimiento y reparaciones de pcs</option>
+                                                            <option value="Técnico en maquinarías de construcción">Técnico en maquinarías de construcción</option>
+                                                            <option value="Topógrafo">Topógrafo</option>
+                                                        </select>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xs-12">
+                                    <div class="col-xs-9">
                                         <p>
                                             Grado Académico <input type="text" 
                                                           name="txtGrado" 
@@ -118,8 +131,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-12 form-inline">
-                                        Desde:  <input type="date" name="txtFecha1" id="txtFecha1" class="form-control" style="width:170px;" value="<?php echo date('Y-m-d'); ?>">
-                                        Hasta:  <input type="date" name="txtFecha2" id="txtFecha2" class="form-control" style="width:170px;" value="<?php echo date('Y-m-d'); ?>">
+                                        Desde:  <input type="date" name="txtFecha1" id="txtFecha1" class="form-control" style="width:175px;" value="<?php echo date('Y-m-d'); ?>">
+                                        Hasta:  <input type="date" name="txtFecha2" id="txtFecha2" class="form-control" style="width:175px;" value="<?php echo date('Y-m-d'); ?>">
                                     </div>
                                 </div>
                           </div>
@@ -177,6 +190,8 @@
 
     });
     </script>    
+    
+    <!--<script src="js/cbCodigo.js" type="text/javascript"></script>-->
     <script src="js/datos.estudios.js" type="text/javascript"></script>
 </body>
 </html>
