@@ -944,79 +944,6 @@ CREATE OR REPLACE FUNCTION fn_registrarCriterio(
 
 
 -- ----------------------------------------------------------------------------------------
--- FUNCION: FILTRO CURRICULAR
-
-CREATE OR REPLACE FUNCTION fn_FiltroCurriculo (
-					p_codigo_postulacion integer,
-					p_doc_id character varying(20),
-					p_codigo_puesto_laboral integer
-					-- in p_tipo_jornada varchar(50),
-					-- in p_estado_requerimientos varchar(50)
-				)  RETURNS void AS 
- $$
- begin   
-
-		if
-		   (
-			(select
-				count(*)
-			from 
-				experiencia_requerida er inner join experiencia_laboral el
-			on
-				(er.experiencia_requerida = el.puesto and er.duracion = el.duracion) where doc_id = p_doc_id) = (select count (*) from experiencia_requerida)
-		   
-		  ) THEN
-
-				insert into postulacion(codgio_postulacion,doc_id,nombre,estado,fecha_postulacion,codigo_puesto_laboral)
-				values(
-					p_codigo_postulacion, 
-					p_doc_id,
-					(
-						select 
-							nombre 
-						from 
-							candidato 
-						where 
-						doc_id = p_doc_id
-					),
-					'CURRICULO APTO',
-					(
-					SELECT TO_CHAR(NOW(), 'DD-Mon YYYY')as fecha
-					),
-					p_codigo_puesto_laboral);
-		else
-			
-			insert into postulacion(codgio_postulacion,doc_id,nombre,estado,fecha_postulacion,codigo_puesto_laboral)
-				values(
-					p_codigo_postulacion, 
-					p_doc_id,
-					(
-						select 
-							nombre 
-						from 
-							candidato 
-						where 
-						doc_id = p_doc_id
-					),
-					'CURRICULO NO APTO',
-					(
-					SELECT TO_CHAR(NOW(), 'DD-Mon YYYY')as fecha
-					),
-					p_codigo_puesto_laboral);
-		
-
-			end if;
- end;
- $$ language plpgsql;	
-
-select * from fn_FiltroCurriculo(
-				    1,
-                                    '45977448',
-                                    1
-                                   
-			   );
-
--- ----------------------------------------------------------------------------------------
 -- FUNCION: CALIFICAR PREGUNTAS
 
  CREATE OR REPLACE FUNCTION fn_CalificarPreguntas (
@@ -1279,11 +1206,92 @@ UPDATE
 					
 -- CONSULTA PARA FILTRAR CV, FECHA: 15/11/2019
 
-select f.nombre_formacion_laboral from formacion_laboral f inner join experiencia_laboral e
-on f.codigo_formacion_laboral = e.codigo_formacion_laboral
-where nombre_formacion_laboral NOT IN (select titulo_estudio from estudio_candidato)
+CREATE OR REPLACE FUNCTION fn_FiltroCurriculo(
+					p_codigo_postulacion integer,
+					p_doc_id character varying(20),
+					p_codigo_puesto_laboral integer
+					
+				)  RETURNS void AS 
+  $$
+  		
+  begin   
+  	
+-- CREAMOS LA TABLA TEMPORAL @FORMACION_ACADEMICA Y AGREGAMOS SOLO EL REGISTRO DE titulo_estudio DE LA TABLA estudio_candidato
 
+		CREATE TEMP TABLE tFORMACION_ACADEMICA AS
+		SELECT * FROM estudio_candidato
+		WHERE  doc_id = p_doc_id
+		ORDER BY 1;
+	
+-- CREAMOS LA TABLA TEMPORAL @FORMACION_ACADEMICA Y AGREGAMOS SOLO EL REGISTRO DE titulo_estudio DE LA TABLA estudio_candidato	
 
+		CREATE TEMP TABLE tFORMACION_LABORAL AS
+		SELECT f.nombre_formacion_laboral 
+		FROM   formacion_laboral f inner join experiencia_laboral e
+		ON     f.codigo_formacion_laboral = e.codigo_formacion_laboral
+		where  e.codigo_puesto_laboral = 1
+		ORDER BY 1;
+
+			if(
+				select 
+				    nombre_formacion_laboral
+				from 
+					tFORMACION_LABORAL
+				where 
+					nombre_formacion_laboral not in (select titulo_estudio from tFORMACION_ACADEMICA)
+			
+			  ) IS NULL
+			  THEN
+			  	insert into postulacion(codgio_postulacion,doc_id,nombre,estado,fecha_postulacion,codigo_puesto_laboral)
+				values(
+					p_codigo_postulacion, 
+					p_doc_id,
+					(
+						select 
+							nombre 
+						from 
+							candidato 
+						where 
+						doc_id = p_doc_id
+					),
+					'CURRICULO APTO',
+					(
+					SELECT TO_CHAR(NOW(), 'DD-Mon YYYY')as fecha
+					),
+					p_codigo_puesto_laboral);
+				ELSE
+					insert into postulacion(codgio_postulacion,doc_id,nombre,estado,fecha_postulacion,codigo_puesto_laboral)
+				values(
+					p_codigo_postulacion, 
+					p_doc_id,
+					(
+						select 
+							nombre 
+						from 
+							candidato 
+						where 
+						doc_id = p_doc_id
+					),
+					'CURRICULO NO APTO',
+					(
+					SELECT TO_CHAR(NOW(), 'DD-Mon YYYY')as fecha
+					),
+					p_codigo_puesto_laboral);
+				 
+			end if;
+	drop table tFORMACION_ACADEMICA;
+	drop table tFORMACION_LABORAL;
+ end;
+ $$ language plpgsql;	
+
+select* from postulacion
+delete from postulacion
+
+  select * from fn_FiltroCurriculo(
+				    1,
+					'45977448',
+					1			
+			   );
 
 
 
