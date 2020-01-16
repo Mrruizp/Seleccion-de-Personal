@@ -167,20 +167,29 @@ class GestionarExperienciaLaboral extends Conexion {
         }
     }
 
-    public function editar() {
+    public function editar($p_codigoExperiencia) {
         try {
             $sql = "
                 
                 UPDATE 
                     experiencia_laboral
                 SET 
-                    nombre_experiencia_laboral = :p_nomb_for
+                    nombre_experiencia_laboral = :p_nombre_Experiencia,
+                    duracion_experiencia_laboral = :p_duracion,
+                    codigo_puesto_laboral = :p_cod_puesto,
+                    codigo_formacion_laboral = :p_cod_formacion
                 WHERE
-                    codigo_formacion_laboral = :p_cod_for;
+                    codigo_experiencia_laboral = :p_cod_exp;
                 ";
             $sentencia = $this->dblink->prepare($sql);
-            $sentencia->bindParam(":p_cod_for", $this->getCodigo_formacion_laboral());
-            $sentencia->bindParam(":p_nomb_for", $this->getNombre_formacion_laboral());
+            $sentencia->bindParam(":p_nombre_Experiencia", $this->getNombre_experiencia_laboral());
+            $sentencia->bindParam(":p_duracion", $this->getDuracion_experiencia_laboral());
+            $sentencia->bindParam(":p_cod_puesto", $this->getCodigo_puesto_laboral());
+            $sentencia->bindParam(":p_cod_formacion", $this->getCodigo_formacion_laboral());
+            $sentencia->bindParam(":p_cod_exp", $p_codigoExperiencia);
+            
+            
+            
             //$sentencia->bindParam(":p_nomb_exp", $this->getNombre_experiencia_laboral());
             $sentencia->execute();
             return true;

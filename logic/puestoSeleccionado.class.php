@@ -12,7 +12,7 @@ class puestoSeleccionado extends Conexion {
                     from
                             puesto_laboral p inner join experiencia_laboral e
                     on
-                            p.codigo_puesto_laboral = e.codigo_experiencia_laboral inner join formacion_laboral f
+                            p.codigo_puesto_laboral = e.codigo_puesto_laboral inner join formacion_laboral f
                     on
                             f.codigo_formacion_laboral = e.codigo_formacion_laboral
                     where

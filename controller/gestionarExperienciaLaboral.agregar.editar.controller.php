@@ -54,7 +54,7 @@ try {
         $objGestionarExperienciaLaboral->setCodigo_formacion_laboral($codigoFormacionLaboral);
         $objGestionarExperienciaLaboral->setDuracion_experiencia_laboral($duracionExperienciaLaboral);
         $objGestionarExperienciaLaboral->setNombre_experiencia_laboral($nombreExperienciaLaboral);
-        $resultado = $objGestionarExperienciaLaboral->editar();
+        $resultado = $objGestionarExperienciaLaboral->editar($codigo);
         if ($resultado) {
             Helper::imprimeJSON(200, "Agregado correctamente", "");
         }

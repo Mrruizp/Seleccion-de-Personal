@@ -546,7 +546,7 @@ $("#frmgrabar3").submit(function (event) {
                         if (datosJSON.estado === 200) {
                             swal("Exito", datosJSON.mensaje, "success");
                             $("#btncerrar3").click(); //Cerrar la ventana 
-                            listarExperiencia()(); //actualizar la lista
+                            listarExperiencia(); //actualizar la lista
                         } else {
                             swal("Mensaje del sistema", resultado, "warning");
                         }
