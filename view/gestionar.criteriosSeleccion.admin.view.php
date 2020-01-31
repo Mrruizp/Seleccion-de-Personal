@@ -40,7 +40,7 @@ require_once 'validar.datos.sesion.view.php';
                     <h3></h3>
                     <ol class="breadcrumb">
                         <li><a href="menu.principal.view.php"><i class="fa fa-dashboard"></i> Inicio</a></li>
-                        <li class="active">Criterios de Selección</li>
+                        <li class="active">Criterios de Evaluación</li>
                         <!--<li class="active">User profile</li>-->
                     </ol>
 
@@ -52,7 +52,7 @@ require_once 'validar.datos.sesion.view.php';
                         <div class="col-md-12">
                             <div class="box box-warning">
                                 <section class="content-header">
-                                    <h3>Criterios</h3>
+                                    <h3>Criterios de Evaluación</h3>
                                     <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal" id="btnagregar"><i class="fa fa-plus"> Agregar nuevo criterio </i></button>
                                 </section>
                                 <div class="box-body">

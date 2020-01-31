@@ -22,7 +22,7 @@ class Prueba extends Conexion {
     public function setCod_calificacion_prueba($cod_calificacion_prueba) {
         $this->cod_calificacion_prueba = $cod_calificacion_prueba;
     }
-
+/*
     public function listar($p_codigoPuesto) {
 
         try {
@@ -52,8 +52,8 @@ class Prueba extends Conexion {
             throw $exc;
         }
     }
-
-    public function listarConocimiento($p_codigoPuesto) {
+*/
+    public function listarResumen($p_codigoPuesto) {// Lista el resumen de un examen
 //        codigo_cronograma,
 //                        fecha_cronograma, 
 //                        codigo_etapa,
@@ -63,13 +63,15 @@ class Prueba extends Conexion {
                     SELECT 
                         distinct p.codigo_prueba,
                         count(c.codigo_pregunta)as num_respuestas,
+						t.nombre_tipo_prueba,
                         p.nombre_prueba, 
                         p.instruccion, 
                         p.duracion,
                         r.promedio
                         
                    FROM 
-                         prueba p left join promedio_prueba r
+                         tipo_prueba t left join  prueba p 
+				   on 	t.codigo_tipo_prueba = p.codigo_tipo_prueba left join promedio_prueba r
                    on
                          p.codigo_prueba = r.codigo_prueba left join pregunta b
                    on 
@@ -77,14 +79,13 @@ class Prueba extends Conexion {
 		  on 
 			b.codigo_pregunta = c.codigo_pregunta
                     where
-                        codigo_tipo_prueba = 3 and 
                         codigo_puesto_laboral = :p_cod_pues 
                  GROUP BY p.codigo_prueba,p.nombre_prueba, 
                         p.instruccion, 
                         p.duracion,
-                        r.promedio
-                    order by 
-                            1
+                        r.promedio,
+						t.nombre_tipo_prueba
+                    order by 1
                 ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_cod_pues", $p_codigoPuesto);

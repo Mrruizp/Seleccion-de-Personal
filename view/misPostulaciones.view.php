@@ -89,31 +89,11 @@ $_POST["s_usuario"] = $dniSesion;
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        
+                        <div class="col-md-8">
                             <div class="box box-warning box-solid">
                                 <div class="box-header with-border">
-                                    <h3 class="box-title">Pruebas Específicas</h3>
-
-                                    <!--                                                            <div class="box-tools pull-right">
-                                                                                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                                                                                                </div>-->
-                                    <!-- /.box-tools -->
-                                </div>
-                                <br/>
-                                &nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModalCalifPruebas" id="btnagregarCalifPruebas"><i class="fa fa-pencil"> Evaluar Prueba </i></button>
-                                <br/>
-                                <!-- /.box-header -->
-                                <div class="box-body">
-                                    <div id="listadoE"></div>
-                                </div>
-                                <!-- /.box-body -->
-                            </div>
-                            <!-- /.box -->
-                        </div>
-                        <div class="col-md-6">
-                            <div class="box box-warning box-solid">
-                                <div class="box-header with-border">
-                                    <h3 class="box-title">Pruebas de Conocimiento</h3>
+                                    <h3 class="box-title">Pruebas</h3>
 
                                     <!--                                                            <div class="box-tools pull-right">
                                                                                                     <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -138,6 +118,26 @@ $_POST["s_usuario"] = $dniSesion;
                                                                                 </div>
                                                                             </div>
                                                                         </div>-->
+                        <div class="col-md-4">
+                                <div class="box box-warning box-solid">
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title">Mis Respuestas</h3>
+
+                                        <!--                                                            <div class="box-tools pull-right">
+                                                                                                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                                                                                    </div>-->
+                                        <!-- /.box-tools -->
+                                    </div>
+                                    <!-- /.box-header -->
+                                    <div class="box-body">
+
+                                        <div id="respuestas"></div>
+
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-7">
@@ -171,26 +171,7 @@ $_POST["s_usuario"] = $dniSesion;
                             </div>
                             <!-- /.box -->
                         </div>
-                        <div class="col-md-5">
-                            <div class="box box-warning box-solid">
-                                <div class="box-header with-border">
-                                    <h3 class="box-title">Mis Respuestas</h3>
-
-                                    <!--                                                            <div class="box-tools pull-right">
-                                                                                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                                                                                                </div>-->
-                                    <!-- /.box-tools -->
-                                </div>
-                                <!-- /.box-header -->
-                                <div class="box-body">
-
-                                    <div id="respuestas"></div>
-
-                                    <!-- /.box-body -->
-                                </div>
-                                <!-- /.box -->
-                            </div>
-                        </div>
+                        
                         <small>
                             <form id="frmgrabarResp">
                                 <div class="modal fade" id="myModalResp" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

@@ -148,88 +148,7 @@ function listarCronograma(codConv) {
     });
 }
 function evaluacion(codPues) {
-    $.post
-            (
-                    "../controller/pruebas.especificas.listar.controller.php",
-                    {
-                        p_cod_pues: codPues
-                    }
-
-            ).done(function (resultado) {
-        var datosJSON = resultado;
-        var jsonResultado = resultado;
-        if (datosJSON.estado === 200) {
-            var html = "";
-            $("#txtTipoOperacion").val("editar");
-            $("#txtCodigo").val(jsonResultado.datos.codigo_prueba);
-            $("#titulomodal").html("Test");
-            html += '<small>';
-            html += '<table id="tabla-listadoE" class="table table-condensed">';
-            html += '<thead>';
-            html += '<tr style="background-color: #ededed; height:25px;">';
-//            html += '<th style="text-align: center">CODIGO</th>';
-            html += '<th style="text-align: center">CÓDIGO</th>';
-            html += '<th style="text-align: center">PRUEBA</th>';
-//            html += '<th style="text-align: center">ESTADO</th>';
-            html += '<th style="text-align: center">CALIFICAR</th>';
-            html += '<th style="text-align: center">MIS RESPUESTAS</th>';
-            html += '</tr>';
-            html += '</thead>';
-            html += '<tbody>';
-
-            //Detalle
-            $.each(datosJSON.datos, function (i, item) {
-//                if(item.estado == 'concluido'){
-                html += '<tr>';
-//                    html += '<td align="center">'+item.codigo_convocatoria+'</td>';
-                html += '<td align="center">' + item.codigo_prueba + '</td>';
-                html += '<td align="center">' + item.nombre_prueba + '</td>';
-//                if ((item.doc_id) === null) {
-//                    html += '<td align="center" class="text-waning"><p class="text-danger"><b>SIN EVALUAR</b></p></td>';
-//                    
-//                } else {
-//                    html += '<td align="center" class="text-waning"><p class="text-warning"><b>EVALUADO</b></p></td>';
-//                }
-//                if ((item.doc_id) === null) {
-                    html += '<td align="center">';
-//                    html += '<a href="evaluacion.examen.view.php?id=' + item.codigo_prueba + '"><i class="fa fa-eye"></i>';
-                    html += '<button type="button" class="btn btn-warning btn-xs" onclick="examenes(' + item.codigo_prueba + ');"><i class=""></i>Empezar</button>';
-                    html += '</td>';
-                    
-//                } else {
-//                    html += '<td align="center" class="text-waning"><p class="text-primary"><b>FINALIZADO</b></p></td>';
-//                }
-                html += '<td align="center">';
-                html += '<button type="button" class="btn btn-default btn-xs" onclick="respuestaCandidato(' + item.codigo_prueba + ');"><i class="fa fa-eye"></i></button>';
-                html += '</td>';
-//                    html += '<td align="center">';
-//                    html += '<button type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#myModal" onclick="listarPuestos(' + item.codigo_convocatoria + ')"><i class="fa  fa-folder-open-o"></i></button>';
-//                    html += '</td>';
-                html += '</tr>';
-            });
-//
-            html += '</tbody>';
-            html += '</table>';
-            html += '</small>';
-
-            $("#listadoE").html(html);
-
-
-//            $('#tabla-listadoE').dataTable({
-//                "aaSorting": [[1, "desc"]]
-//            });
-
-
-
-        } else {
-            //swal("Mensaje del sistema", resultado , "warning");
-        }
-
-    }).fail(function (error) {
-        var datosJSON = $.parseJSON(error.responseText);
-        swal("Error", datosJSON.mensaje, "error");
-
-    });
+    
     $.post
             (
                     "../controller/pruebas.conocimiento.listar.controller.php",
@@ -250,10 +169,13 @@ function evaluacion(codPues) {
             html += '<thead>';
             html += '<tr style="background-color: #ededed; height:25px;">';
 //            html += '<th style="text-align: center">CODIGO</th>';
-            html += '<th style="text-align: center">CÓDIGO</th>';
+            html += '<th style="text-align: center">PRUEDAID</th>';
+            html += '<th style="text-align: center">TIPO DE PRUEBA</th>';
             html += '<th style="text-align: center">PRUEBA</th>';
 //            html += '<th style="text-align: center">ESTADO</th>';
             html += '<th style="text-align: center">CALIFICAR</th>';
+            html += '<th style="text-align: center">Tiempo</th>';
+            html += '<th style="text-align: center">Promedio</th>';
             html += '<th style="text-align: center">MIS RESPUESTAS</th>';
             html += '</tr>';
             html += '</thead>';
@@ -265,6 +187,7 @@ function evaluacion(codPues) {
                 html += '<tr>';
 //                    html += '<td align="center">'+item.codigo_convocatoria+'</td>';
                 html += '<td align="center">' + item.codigo_prueba + '</td>';
+                html += '<td align="center">' + item.nombre_tipo_prueba + '</td>';
                 html += '<td align="center">' + item.nombre_prueba + '</td>';
 //                if ((item.doc_id) === null) {
 //                    html += '<td align="center" class="text-waning"><p class="text-danger"><b>SIN EVALUAR</b></p></td>';
@@ -281,12 +204,11 @@ function evaluacion(codPues) {
 //                } else {
 //                    html += '<td align="center" class="text-waning"><p class="text-primary"><b>FINALIZADO</b></p></td>';
 //                }
+                html += '<td align="center">' + item.duracion + '</td>';
+                html += '<td align="center">' + item.promedio + '</td>';
                 html += '<td align="center">';
                 html += '<button type="button" class="btn btn-default btn-xs" onclick="respuestaCandidato(' + item.codigo_prueba + ');"><i class="fa fa-eye"></i></button>';
                 html += '</td>';
-//                    html += '<td align="center">';
-//                    html += '<button type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#myModal" onclick="listarPuestos(' + item.codigo_convocatoria + ')"><i class="fa  fa-folder-open-o"></i></button>';
-//                    html += '</td>';
                 html += '</tr>';
             });
 //

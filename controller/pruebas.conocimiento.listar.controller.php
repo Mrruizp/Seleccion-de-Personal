@@ -18,7 +18,7 @@ try {
     $codPues = $_POST["p_cod_pues"];
     
     $objPrueba = new Prueba();
-    $resultado = $objPrueba->listarConocimiento($codPues);
+    $resultado = $objPrueba->listarResumen($codPues);
     
     Helper::imprimeJSON(200, "", $resultado);
     
