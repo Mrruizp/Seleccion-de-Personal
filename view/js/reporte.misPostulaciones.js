@@ -43,13 +43,14 @@ function listar() {
                 html += '<td style="text-align: center">' + item.fecha_postulacion + '</td>';
                 html += '<td style="text-align: center">' + item.estado + '</td>';
                 html += '<td align="center">';
-                html += '<button type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#myModal" onclick="listarCronograma(' + item.codigo_convocatoria + ')"><i class="fa fa-calendar"></i></button>';
+                html += '<button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#myModal" onclick="listarCronograma(' + item.codigo_convocatoria + ')"><i class="fa fa-calendar"></i></button>';
                 html += '</td>';
                 html += '<td align="center">';
                 
                 if(item.estado === 'CURRICULO APTO')
                 {
-                    html += '<button type="button" class="btn btn-link btn-xs" onclick="evaluacion(' + item.codigo_puesto_laboral + ')"><i class="fa fa-file-text"></i></button>';
+                    html += '<button type="button" class="btn btn-default btn-xs" onclick="evaluacion(' + item.codigo_puesto_laboral + ')"><i class="fa fa-file-text"></i></button>';
+                 
                 }
                 //html += '';
 //                    html += '<button type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#myModal2" onclick="evaluacion(' + item.codigo_puesto_laboral + ')"><i class="fa fa-file-text"></i></button>';
@@ -195,15 +196,15 @@ function evaluacion(codPues) {
 //                } else {
 //                    html += '<td align="center" class="text-waning"><p class="text-warning"><b>EVALUADO</b></p></td>';
 //                }
-//                if ((item.doc_id) === null) {
+                if ((item.promedio) === null) {
                     html += '<td align="center">';
 //                    html += '<a href="evaluacion.examen.view.php?id=' + item.codigo_prueba + '"><i class="fa fa-eye"></i>';
                     html += '<button type="button" class="btn btn-warning btn-xs" onclick="examenes(' + item.codigo_prueba + ');"><i class=""></i>Empezar</button>';
                     html += '</td>';
                     
-//                } else {
-//                    html += '<td align="center" class="text-waning"><p class="text-primary"><b>FINALIZADO</b></p></td>';
-//                }
+                } else {
+                   html += '<td align="center" class="text-waning" disabled><p class="text-primary"><b>FINALIZADO</b></p></td>';
+                }
                 html += '<td align="center">' + item.duracion + '</td>';
                 html += '<td align="center">' + item.promedio + '</td>';
                 html += '<td align="center">';
