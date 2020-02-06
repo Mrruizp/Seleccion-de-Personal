@@ -54,7 +54,8 @@ class Respuesta_candidato extends Conexion {
                            r.codigo_pregunta, 
                            r.respuesta_candidato, 
                            r.doc_id,
-                           r.numero_pregunta 
+                           r.numero_pregunta,
+                           r.estado
                     FROM 
                         pregunta p inner join respuesta_candidato r  
                     ON 

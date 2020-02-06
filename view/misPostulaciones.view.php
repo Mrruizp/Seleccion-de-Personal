@@ -100,9 +100,9 @@ $_POST["s_usuario"] = $dniSesion;
                                                                                                 </div>-->
                                     <!-- /.box-tools -->
                                 </div>
-<!--                                <br/>
+                               <br/>
                                 &nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModalCalifPruebas" id="btnagregarCalifPruebas"><i class="fa fa-pencil"> Evaluar Prueba </i></button>
-                                <br/>-->
+                                <br/>
                                 <!-- /.box-header -->
                                 <div class="box-body">
                                     <div id="listadoC"></div>

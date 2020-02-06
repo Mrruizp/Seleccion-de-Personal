@@ -401,6 +401,7 @@ function respuestaCandidato(codPrueba) {
 //            html += '<th>CODIGO PRUEBA</th>';
             html += '<th>NÚMERO DE PREGUNTA</th>';
             html += '<th>RESPUESTA</th>';
+            html += '<th>ESTADO</th>';
 //	    html += '<th style="text-align: center">OPCIONES</th>';
             html += '</tr>';
             html += '</thead>';
@@ -412,6 +413,10 @@ function respuestaCandidato(codPrueba) {
 //                html += '<td align="center">'+item.codigo_prueba+'</td>';
                 html += '<td align="center">' + item.numero_pregunta + '</td>';
                 html += '<td align="center">' + item.respuesta_candidato + '</td>';
+                if(item.estado === "CORRECTO") 
+                    html += '<td align="center"><i class="fa fa-check"></td>';
+                else
+                    html += '<td align="center"> <i class="fa fa-times"></td>';
 //		html += '<td align="center">';
 //		html += '<button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal" onclick="leerDatos(' + item.codigo_laboratorio + ')"><i class="fa fa-pencil"></i></button>';
 //		html += '&nbsp;&nbsp;';
