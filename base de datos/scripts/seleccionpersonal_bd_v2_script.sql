@@ -278,7 +278,7 @@ CREATE TABLE TIPO_PRUEBA
 	codigo_ponderacion_deseable integer not null,
 	ponderacion_deseable_minimo integer not null,
 	ponderacion_deseable_maximo integer not null,
-	valoracion integer not null,
+	valoracion character varying(50) not null,
 	estado character varying(50)not null,
 	codigo_prueba integer,
 	CONSTRAINT pk_codigo_ponderacion_deseable PRIMARY KEY(codigo_ponderacion_deseable),

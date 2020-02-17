@@ -339,7 +339,7 @@ function examenes(codPrueba) {
             $.each(datosJSON.datos, function (i, item) {
 //                if(item.estado == 'concluido'){
                 $('.timer').timer({
-                    duration: '10m',
+                    duration: item.duracion,
                     callback: function () {
                         location.href = "../view/misPostulaciones.view.php";
                     }

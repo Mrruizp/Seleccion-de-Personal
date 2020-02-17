@@ -6,7 +6,7 @@ try {
     require_once '../util/functions/Helper.class.php';
 
     if
-    (
+        (
             !isset($_POST["p_fecha"]) ||
             empty($_POST["p_fecha"]) ||
             
@@ -18,8 +18,8 @@ try {
             
             !isset($_POST["p_tipo_ope"]) ||
             empty($_POST["p_tipo_ope"])
-    ) 
-        {
+        ) 
+    {
         Helper::imprimeJSON(500, "Falta completar datos", "");
         exit();
     }
@@ -34,10 +34,12 @@ try {
     $objCrono = new GestionarConvocatoria();
 
     if ($tipoOperacion == "agregar") {
+        
         $objCrono->setFecha($fecha);
         $objCrono->setCodigo_convocatoria($codigo_convocatoria);
         $objCrono->setCodigo_etapa($codigo_etapa);
         $resultado = $objCrono->agregarCronograma();
+        
         if ($resultado) {
             Helper::imprimeJSON(200, "Agregado correctamente", "");
         }

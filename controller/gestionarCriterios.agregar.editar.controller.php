@@ -27,8 +27,8 @@ try {
             
         )
     {
-            Helper::imprimeJSON(500, "Falta completar datos", "");
-            exit();
+            //Helper::imprimeJSON(500, "Falta completar datos Holis", "");
+            //exit();
     }
     
     $codigo_prueba = $_POST["p_cod_prueb"];

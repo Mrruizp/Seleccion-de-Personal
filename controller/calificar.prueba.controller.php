@@ -52,7 +52,8 @@ try {
         }
     }
 } catch (Exception $exc) {
-    Helper::imprimeJSON(500, $exc->getMessage(), "");
+  //  Helper::imprimeJSON(500, $exc->getMessage(), "");
+    Helper::imprimeJSON(200, "EXAMEN YA CALIFICADO", "");
 }
 
 

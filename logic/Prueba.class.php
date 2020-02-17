@@ -134,10 +134,11 @@ class Prueba extends Conexion {
         session_start();
         try {
             $sql = "
-                      SELECT 
+                    SELECT 
                             codigo_pregunta,
                             numero_pregunta,
-                            nombre_pregunta 
+                            nombre_pregunta,
+                            r.duracion
                     FROM 
                             puesto_laboral p inner join prueba r
                     on
