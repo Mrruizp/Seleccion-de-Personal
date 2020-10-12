@@ -157,7 +157,7 @@ $_POST["s_usuario"] = $dniSesion;
                                                    name="timer" 
                                                    id="timer" 
                                                    class="form-control timer"
-                                                   placeholder="0 sec" 
+                                                   placeholder="0 sec"
                                                    readonly="">
                                         </p>
                                     </div><br/><br/>
