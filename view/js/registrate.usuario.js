@@ -120,7 +120,7 @@ $("#frmgrabar").submit(function (event) {
                         var datosJSON = resultado;
 
                         if (datosJSON.estado === 200) {
-                            swal("Exito", datosJSON.mensaje, "success");
+                            swal("¡ÉXITO!", "Usuario registrado correctamente.", "success");
                             $("#btncerrar").click(); //Cerrar la ventana 
                            /// listar(); //actualizar la lista
                         } else {

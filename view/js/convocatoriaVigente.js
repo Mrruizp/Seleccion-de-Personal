@@ -178,8 +178,8 @@ function listarCronograma(codConv){
 //                if(item.estado == 'concluido'){
                     html += '<tr>';
 //                    html += '<td align="center">'+item.codigo_convocatoria+'</td>';
-                    html += '<td align="center">'+item.fecha_cronograma+'</td>';
-                    html += '<td align="center">'+item.nombre_etapa+'</td>';
+                    html += '<td align="">'+item.fecha_cronograma+'</td>';
+                    html += '<td align="">'+item.nombre_etapa+'</td>';
                     html += '</tr>';
             });
 

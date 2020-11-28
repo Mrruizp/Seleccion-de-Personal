@@ -15,7 +15,8 @@ class Cronograma extends Conexion {
             $sql = "
                     select 
                         c.codigo_convocatoria,
-			e.nombre_etapa,
+                        e.codigo_etapa,
+			            e.nombre_etapa,
                         c.fecha_cronograma
                     from 
                         cronograma c inner join etapa e
@@ -24,7 +25,7 @@ class Cronograma extends Conexion {
                     where 
                         c.codigo_convocatoria = :p_cod_conv
                     order by 
-                            1
+                            e.codigo_etapa asc
                 ";
             $sentencia = $this->dblink->prepare($sql);
             $sentencia->bindParam(":p_cod_conv", $p_codigoConvocatoria);
